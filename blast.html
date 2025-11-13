@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Service Blast Zoom Effect</title>
+<style>
+  body, html {
+    margin: 0; padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+  .center-photo-container {
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .center-photo {
+    width: 240px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    transition: transform 0.35s ease;
+  }
+  .center-photo:hover {
+    transform: scale(1.05);
+  }
+
+  /* Container for all related photos in table format */
+  .related-photos {
+    position: fixed;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    max-width: 900px;
+    max-height: 70vh;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 14px;
+    padding: 18px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: center;
+  }
+  .related-photos.show {
+    pointer-events: auto;
+    animation: blastZoomIn 0.7s forwards;
+  }
+  @keyframes blastZoomIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
+  .related-photos img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.27s ease;
+  }
+  .related-photos img:hover {
+    transform: scale(1.12);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+  }
+
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+  <div class="center-photo-container" title="Click to view related photos">
+    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Sea Freight" class="center-photo" id="servicePhoto" />
+  </div>
+
+  <div class="related-photos" id="relatedPhotos">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Sea 1" />
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Air 1" />
+    <img src="https://images.unsplash.com/photo-1446694292248-2c2a7e575b1b?auto=format&fit=crop&w=400&q=80" alt="Road 1" />
+    <img src="https://images.unsplash.com/photo-1515168833906-1ae320fa6e78?auto=format&fit=crop&w=400&q=80" alt="Custom Clearance" />
+    <img src="https://images.unsplash.com/photo-1505529367247-998b6aeb7c36?auto=format&fit=crop&w=400&q=80" alt="Exhibition" />
+    <img src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?auto=format&fit=crop&w=400&q=80" alt="On Site Management" />
+    <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3c5d?auto=format&fit=crop&w=400&q=80" alt="Projects" />
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Warehouse Management" />
+  </div>
+
+<script>
+  const servicePhoto = document.getElementById('servicePhoto');
+  const relatedPhotos = document.getElementById('relatedPhotos');
+  const closeBtn = document.getElementById('closeBtn');
+
+  servicePhoto.addEventListener('click', () => {
+    relatedPhotos.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    relatedPhotos.classList.remove('show');
+  });
+
+  // Optional: Close when clicking outside related photos container
+  window.addEventListener('click', (e) => {
+    if(e.target === relatedPhotos) {
+      relatedPhotos.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>
