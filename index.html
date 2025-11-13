@@ -28,12 +28,12 @@
             33% { background-image: url('BG_1.png'); }
             50% { background-image: url('BG_2.png'); }
             66% { background-image: url('BG_2.png'); }
-            83% { background-image: url('BG_4.png'); }
-            100% { background-image: url('BG_4.png'); }
+            83% { background-image: url('BG_2.png'); }
+            100% { background-image: url('BG_2.png'); }
         }
         
         .hero-overlay {
-            background: rgba(10, 54, 98, 0.55);
+            background: rgba(10, 54, 98, 0.35);
             position: absolute;
             top: 0;
             left: 0;
@@ -117,12 +117,272 @@
             font-weight: 700;
             color: #ffffe6;
         }
+    .elegant-serif {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }    
 
          .dropdown:hover .dropdown-menu {
             display: block;
         }
         .dropdown-menu {
             transition: opacity 1s ease;
+        }
+    </style>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            height: 100%;
+        }
+
+       .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        } 
+     
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out both;
+        }
+
+        .stat-box:nth-child(1) { animation-delay: 0.1s; }
+        .stat-box:nth-child(2) { animation-delay: 0.2s; }
+        .stat-box:nth-child(3) { animation-delay: 0.3s; }
+        .stat-box:nth-child(4) { animation-delay: 0.4s; }
+        .stat-box:nth-child(5) { animation-delay: 0.5s; }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .stat-box:hover::before {
+            left: 100%;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-description {
+            font-size: 0.6rem;
+            color: #777;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 2px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 1px;
+            margin-top: 0.3rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        /* Medium screens (tablets) */
+        @media (max-width: 1024px) {
+            .stats-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        /* Small screens (mobile) */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .stat-box {
+                padding: 0.75rem 0.5rem;
+            }
+            
+            .stat-number {
+                font-size: 1.4rem;
+            }
+            
+            .stat-icon {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -133,7 +393,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center">
-		<img src="C:\Users\admin\Downloads\logo_bgr.png" width="80" height="90" alt="Logo">
+		           <img src="C:\Users\admin\Downloads\logo_bgr.png" width="80" height="90" alt="Logo">
                     <div>
                         <h1 class="text-xl font-bold text-gray-800">BIG Logistics India</h1>
                     </div>
@@ -148,21 +408,6 @@
                     <a href="#location" class="text-gray-700 hover:text-blue-600 transform hover:scale-125 transition duration-300">Location</a>
                     <a href="#gallery" class="text-gray-700 hover:text-blue-600 transform hover:scale-125 transition duration-300">Gallery</a>
                     <a href="file:///C:/Users/admin/Desktop/Index.web/contact.html" class="text-gray-700 hover:text-blue-600 transform hover:scale-125 transition duration-300">Contact Us</a>
-                                      
-                    <!-- Login Dropdown -->
-                        <div class="relative dropdown">
-                            <button class="text-gray-700 hover:text-blue-600 transform hover:scale-125 flex items-center transition duration-300">
-                                🔐Login
-                                <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
-                            </button>
-                            <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden">
-                                <a href="file:///C:/Users/admin/Desktop/Index.web/admin_portal.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">🔐Admin</a>
-                                <a href="Working in progress" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Management</a>
-                                <a href="file:///C:/Users/admin/Desktop/Index.web/Emp_Portal.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Employee</a>
-                            </div>
-                        </div>
                 </nav>
                 
                 <!-- Mobile Menu Button -->
@@ -193,13 +438,6 @@
                     <a href="#location" class="block text-gray-700 hover:text-blue-600 py-2">Location</a>
                     <a href="#gallery" class="block text-gray-700 hover:text-blue-600 py-2">Gallery</a>
                     <a href="file:///C:/Users/admin/Desktop/Index.web/contact.html" class="block text-gray-700 hover:text-blue-600 py-2">Contact Us</a>
-                    <!-- Mobile Login Section -->
-                    <div class="pt-2">
-                        <div class="px-3 py-2 text-base font-medium text-gray-500 border-t">Login Options</div>
-                        <a href="file:///C:/Users/admin/Desktop/Index.web/admin_portal.html" class="text-gray-700 hover:text-blue-600 block px-6 py-2 text-sm">🔐Admin</a>
-                        <a href="Working In Progress" class="text-gray-700 hover:text-blue-600 block px-6 py-2 text-sm">Management</a>
-                        <a href="file:///C:/Users/admin/Desktop/Index.web/Emp_Portal.html" class="text-gray-700 hover:text-blue-600 block px-6 py-2 text-sm">Employee</a>
-                    </div>
                 </nav>
             </div>
         </div>
@@ -234,21 +472,214 @@
 
 
        <!-- About Us Section -->
-        <section class="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">About BIG Logistic</h2>
-            <div class="max-w-4xl mx-auto">
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    BIG Logistic is a leading global logistics and supply chain management company, established with a vision to revolutionize the way businesses move their goods across the world. With over two decades of experience in the industry, we have built a reputation for reliability, efficiency, and innovation in logistics solutions.
+        <section id="about" class="bg-white rounded-xl shadow-lg p-8 mb-16">
+            <h2 class="elegant-serif text-5xl font-bold text-gray-800 mb-6 text-center">About Us</h2>
+            <div class="max-w-5xl mx-auto">
+                <li class="text-lg text-gray-700 leading-relaxed font-bold mb-1">
+                  Our Story - Evolution, Growth and Progress 
+                </li>
+                <p class="text-lg text-gray-700 leading-relaxed mb-1"></p> 
+                  At BIG LOGISTICS INDIA, our target is to provide all exhibition and event related services under single roof for all air, sea and by road shipments.<a href="#more1" onclick="openModal('more1')" class="hover:text-blue-700 underline py-1 px-2 rounded-lg transition duration-300">More</a>
+                <li class="text-lg text-gray-700 leading-relaxed font-bold mb-1">
+                   From the Desk of President - Mr. Uttam Gupta
+                </li>
+                <p class="text-lg text-gray-700 leading-relaxed mb-1"></p>
+                    We, at BIG Logistics, are committed towards making the world a less vulnerable place for our clients, to exceed their expectations, meet deadlines and increase Economies of Scale thereby increasing profitability for all members of supply chain.<button onclick="openModal('more2')" class="hover:text-blue-700 underline py-1 px-2 rounded-lg transition duration-300">More</button>
+                <li class="text-lg text-gray-700 leading-relaxed font-bold mb-1">
+                   Our Membershipss
+                </li>
+                <p class="text-lg text-gray-700 leading-relaxed mb-1">
+                   BIG Logistics is an active member of the following governing bodies: 
+                   i) <a href="http://www.ieia.in/" class="text-blue-600">IEIA</a> 
+                   ii)<a href="http://www.iaee.com/" class="text-blue-600">IAEE </a>
+                   iii)<a href="http://www.afeca.com/" class="text-blue-600">AFECA</a>
+                   iv)<a href="http://www.dccaa.in/" class="text-blue-600">DCCAA</a>
+                   v) <a href="https://www.iela.org/members/find-an-iela-member/companies/big-logistics-india-pvt-ltd.html" class="text-blue-600">IELA</a>
                 </p>
-                <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    Our comprehensive network spans across 150+ countries, enabling us to provide seamless end-to-end logistics services including freight forwarding, warehousing, distribution, and supply chain consulting. We pride ourselves on delivering exceptional customer service and cutting-edge technology solutions.
-                </p>
-                <div class="text-center">
-                    <button onclick="openModal('aboutModal')" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-1 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
-                        More About Us
-                    </button>
-                </div>
             </div>
+        <!--conatable box-->
+             <div class="floating-shapes">
+   <div class="shape"></div>
+   <div class="shape"></div>
+   <div class="shape"></div>
+  </div>
+  <div class="container">
+   <div class="stats-container">
+    <div class="stat-box">
+     <div class="stat-icon">
+      🏆
+     </div>
+     <div class="stat-number" data-target="21">
+      0
+     </div>
+     <div class="stat-label">
+      Years of Experience
+     </div>
+     <div class="stat-description">
+      Two decades of industry expertise and innovation
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill"></div>
+     </div>
+    </div>
+    <div class="stat-box">
+     <div class="stat-icon">
+      👥
+     </div>
+     <div class="stat-number" data-target="4000">
+      0
+     </div>
+     <div class="stat-label">
+      Happy Clients
+     </div>
+     <div class="stat-description">
+      Trusted by thousands of satisfied customers worldwide
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill"></div>
+     </div>
+    </div>
+    <div class="stat-box">
+     <div class="stat-icon">
+      🎪
+     </div>
+     <div class="stat-number" data-target="500">
+      0
+     </div>
+     <div class="stat-label">
+      Exhibitions
+     </div>
+     <div class="stat-description">
+      Showcasing excellence at major industry events
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill"></div>
+     </div>
+    </div>
+    <div class="stat-box">
+     <div class="stat-icon">
+      🔄
+     </div>
+     <div class="stat-number" data-target="80">
+      0
+     </div>
+     <div class="stat-label">
+      Repeat Customers
+     </div>
+     <div class="stat-description">
+      High retention rate proves our quality service globally
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill"></div>
+     </div>
+    </div>
+    <div class="stat-box">
+     <div class="stat-icon">
+      🌍
+     </div>
+     <div class="stat-number" data-target="20">
+      0
+     </div>
+     <div class="stat-label">
+      Cities Captured
+     </div>
+     <div class="stat-description">
+      Expanding our reach across major metropolitan areas
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill"></div>
+     </div>
+    </div>
+   </div>
+  <script>
+        // Counter Animation Function
+        function animateCounter(element, target, duration = 2000, suffix = '') {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                let displayValue = Math.floor(current);
+                if (suffix === '%') {
+                    element.textContent = displayValue + '%';
+                } else if (target >= 1000) {
+                    element.textContent = displayValue.toLocaleString() + '+';
+                } else {
+                    element.textContent = displayValue + '+';
+                }
+            }, 16);
+        }
+
+        // Progress Bar Animation
+        function animateProgressBar(progressBar, percentage) {
+            setTimeout(() => {
+                progressBar.style.width = percentage + '%';
+            }, 500);
+        }
+
+        // Intersection Observer for triggering animations
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const progressFill = entry.target.querySelector('.progress-fill');
+                    const target = parseInt(statNumber.dataset.target);
+                    
+                    // Determine suffix and progress percentage
+                    let suffix = '+';
+                    let progressPercentage = 100;
+                    
+                    if (entry.target.querySelector('.stat-label').textContent.includes('Repeat Customers')) {
+                        suffix = '%';
+                        progressPercentage = target;
+                    }
+                    
+                    // Start counter animation
+                    animateCounter(statNumber, target, 2500, suffix);
+                    
+                    // Start progress bar animation
+                    animateProgressBar(progressFill, progressPercentage);
+                    
+                    // Unobserve after animation starts
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all stat boxes
+        document.addEventListener('DOMContentLoaded', () => {
+            const statBoxes = document.querySelectorAll('.stat-box');
+            statBoxes.forEach(box => {
+                observer.observe(box);
+            });
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.stat-box').forEach(box => {
+            box.addEventListener('mouseenter', () => {
+                const icon = box.querySelector('.stat-icon');
+                icon.style.transform = 'scale(1.2) rotate(10deg)';
+                icon.style.transition = 'transform 0.3s ease';
+            });
+            
+            box.addEventListener('mouseleave', () => {
+                const icon = box.querySelector('.stat-icon');
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+
         </section>
 
         <!-- Mission, Vision, Values Section -->
@@ -262,7 +693,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
                 <p class="text-gray-600 mb-6 leading-relaxed">
-                    To provide innovative, reliable, and cost-effective logistics solutions that empower businesses to reach their full potential in the global marketplace.
+                The team at BIG Logistics aims at providing the valued clientele with the most economic, diversified, well-spread and door-to-door services in the field of exhibition handling, fair and events by implementing Economies of Scale (EOS), Just-in-Time (JIT) and Lean management methods.
                 </p>
                 <button onclick="openModal('missionModal')" class="bg-green-50 hover:bg-green-500 text-blue-700 font-semibold underline py-1 px-2 rounded-lg transition duration-300">
                    Read More
@@ -279,7 +710,8 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
                 <p class="text-gray-600 mb-6 leading-relaxed">
-                    To be the world's most trusted and innovative logistics partner, connecting businesses and communities through seamless global supply chain solutions.
+                The vision of BIG Logistics, as in the words of their CEO Mr. Uttam Gupta, is –
+“Connecting all corners of the world through a diversified network of our services”
                 </p>
                 <button onclick="openModal('visionModal')" class="bg-green-50 hover:bg-green-500 text-blue-700 font-semibold underline py-1 px-2 rounded-lg transition duration-300">
                    Read More
@@ -295,7 +727,9 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Values</h3>
                 <p class="text-gray-600 mb-6 leading-relaxed">
-                    Integrity, Excellence, Innovation, and Customer-centricity form the foundation of everything we do at BIG Logistic.
+                 • Transparency both towards our clients as well as employees
+• Striving for excellence for the betterment of our cleients and our growth
+• Initiating and performing all actions keeping the well being of our clients in mind
                 </p>
                 <button onclick="openModal('valuesModal')" class="bg-green-50 hover:bg-green-500 text-blue-700 font-semibold underline py-1 px-2 rounded-lg transition duration-300">
                     Read More
@@ -305,32 +739,48 @@
     </main>
 
     <!-- About Modal -->
-    <div id="aboutModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl max-w-2xl w-full max-h-96 overflow-y-auto fade-in">
+    <div id="more1" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
             <div class="p-8">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold text-gray-800">About BIG Logistic - Detailed Overview</h3>
-                    <button onclick="closeModal('aboutModal')" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">×</button>
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Evolution, Growth and Progress</h3>
+                    <button onclick="closeModal('more1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
                 </div>
-                <div class="space-y-4 text-gray-700">
-                    <p>Founded in 2001, BIG Logistic has grown from a small regional carrier to one of the world's leading logistics companies. Our journey began with a simple mission: to make global trade more accessible and efficient for businesses of all sizes.</p>
-                    <p>Today, we operate a fleet of over 10,000 vehicles, manage 200+ warehouses worldwide, and employ more than 50,000 dedicated professionals. Our advanced technology platform processes over 1 million shipments monthly, ensuring real-time tracking and transparency for our clients.</p>
-                    <p>Key achievements include:</p>
+                <div class="space-y-4 text-white">
+                  <p>The services include - Freight forwarding, Customs Clearance, On-site and off-site warehousing, Transportation, on-site handling of all kinds of cargo, unpacking and re-packing. We have a core group of 37 members who head various departments, and cover regions throughout the world. We take pride in the fact that all the core group members, having an experience of more than 20 years, have been together even long before since the inception of our brand, and are still growing strong together, carrying forward our values and mission.</p> 
+                  <p>It remains important for our organization that the success of our business goes hand-in-hand with the development of our colleagues, and the growth of our valued partner agents/clients throughout the world. Our USP is that we fulfill our financial, quality of services and time bound commitments that we make to our partners under any circumstances, and at any cost. This has been our success formula which has helped us to establish our brand with all the major organizers and partner agents throughout the world.</p>
+                  <p>Having company owned offices in all metro cities; along with Government of India approved Customs Broker license gives us the additional stability and strength that we need to handle exhibitions of all volumes and nature across all major and minor venues in India. You can leave your worries far behind once your cargo is in our hands, for we very well understand the needs and demands of exhibitors throughout the world!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="more2" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">From the Desk of President - Mr. Uttam Gupta</h3>
+                    <button onclick="closeModal('more2')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="space-y-4" style="color: #FFD700;">
+                    <p>In my experience of more than 25 years in this industry, I have had a few learnings of my own.</p>
+                    <p>We are living in an age of “VUCA times”. VUCA generally stands for – Volatility, uncertainty, complexity and ambiguity. However, due to the dynamic nature of world which we are living in, the new VUCA should be – Vulnerability, ulterior, contradictory and abnegation:</p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li>ISO 9001:2015 certified quality management system</li>
-                        <li>Fair</li>
-                        <li>99.7% on-time delivery rate globally</li>
-                        <li>24/7 multilingual customer support in 40+ languages</li>
-                        <li>Strategic partnerships with major airlines and shipping lines</li>
+                        <li><strong>Vulnerability:</strong> One cannot reduce vulnerability, a smart company is the one which can make plans to make themselves less vulnerable to external and unpredictable factors.</li>
+                        <li><strong>Ulteriority:</strong>  To survive in this ultra-competitive environment we need to see the bigger picture. Everything is a subset of some master set, and hence the master set should shape our actions.</li>
+                        <li><strong>Contradictory:</strong> Every innovative idea invites contradictions. We need to have the reasoning and the planning to tackle the contradiction.</li>
+                        <li><strong>Abnegation:</strong> Self-denial is the biggest liability. As it is said, to win over one-self is the biggest victory, we need to convince ourselves of our vision and mission before our team and clients.</li>
                     </ul>
-                </div>
+                    <p>We, at BIG Logistics, are committed towards making the world a less vulnerable place for our clients and to keep them safe from these VUCA times, to exceed their expectations, meet deadlines and increase Economies of Scale thereby increasing profitability for all members of supply chain.</p>
+                    <p class="font-bold">- Uttam Gupta (President)</p>
+                </div>  
             </div>
         </div>
     </div>
 
     <!-- Mission Modal -->
     <div id="missionModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl max-w-2xl w-full max-h-96 overflow-y-auto fade-in">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-96 overflow-y-auto fade-in">
             <div class="p-8">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold text-gray-800">Our Mission - Detailed</h3>
@@ -353,11 +803,11 @@
 
     <!-- Vision Modal -->
     <div id="visionModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl max-w-2xl w-full max-h-96 overflow-y-auto fade-in">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-96 overflow-y-auto fade-in">
             <div class="p-8">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold text-gray-800">Our Vision - Detailed</h3>
-                    <button onclick="closeModal('visionModal')" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">×</button>
+                    <button onclick="closeModal('visionModal')" class="text-gray-500 hover:text-red-700 text-2xl font-bold">×</button>
                 </div>
                 <div class="space-y-4 text-gray-700">
                     <p>Our vision for the future encompasses:</p>
@@ -377,11 +827,11 @@
 
     <!-- Values Modal -->
     <div id="valuesModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl max-w-2xl w-full max-h-96 overflow-y-auto fade-in">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-96 overflow-y-auto fade-in">
             <div class="p-8">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold text-gray-800">Our Values - Detailed</h3>
-                    <button onclick="closeModal('valuesModal')" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">×</button>
+                    <button onclick="closeModal('valuesModal')" class="text-gray-500 hover:text-red-700 text-2xl font-bold">×</button>
                 </div>
                 <div class="space-y-4 text-gray-700">
                     <div>
@@ -405,41 +855,6 @@
         </div>
     </div>
 
-    <script>
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.addEventListener('click', function(event) {
-            if (event.target.classList.contains('modal')) {
-                const modalId = event.target.id;
-                closeModal(modalId);
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const openModals = document.querySelectorAll('.modal:not(.hidden)');
-                openModals.forEach(modal => {
-                    closeModal(modal.id);
-                });
-            }
-        });
-    </script>
-
-
     <!-- Services Section -->
     <section id="services" class="py-20 relative" style="background-image: url('https://media.licdn.com/dms/image/v2/D4E12AQFPE7DZOv_VBA/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1697045559589?e=2147483647&v=beta&t=ONdDDPbDDlWn7oeu5J7TvEoFlh4dJ66-9UJ6pgoUsB4'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-black bg-opacity-30"></div>
@@ -452,40 +867,39 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
 		<!-- Exhibition -->
-                <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-                    <svg class="w-16 h-16 mx-auto mb-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
+              <button onclick="openModal('s1')">
+                <div class="service-card bg-white rounded-lg shadow-lg p-1 text-center">
+                    <img src="C:\Users\admin\Desktop\Index.web\Exhibitions.png" width="400" height="300" alt="Exhibition">
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Exhibition</h3>
                     <p class="text-gray-600">Specialized logistics for trade shows and exhibition events</p>
                 </div>
-                
+               </button> 
                 <!-- Onsite Handling -->
-                <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-                    <svg class="w-16 h-16 mx-auto mb-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
+               <button onclick="openModal('s2')">  
+                <div class="service-card bg-white rounded-lg shadow-lg p-1 text-center">
+                    <img src="C:\Users\admin\Desktop\Index.web\Sea-freight.jpg"  width="400" height="200" alt="onsite-handling">
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Onsite Handling</h3>
                     <p class="text-gray-600">Professional on-ground logistics coordination and management</p>
                 </div>
-                
+               </button> 
                 <!-- Warehousing -->
-                <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-                    <svg class="w-16 h-16 mx-auto mb-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 2.84L18.16 12H17v6H7v-6H5.84L12 5.84z"/>
-                    </svg>
+               <button onclick="openModal('s3')">
+                <div class="service-card bg-white rounded-lg shadow-lg p-1 text-center">
+                    <img src="C:\Users\admin\Desktop\Index.web\Sea-freight.jpg"  width="400" height="200" alt="Warehousing">
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Warehousing</h3>
                     <p class="text-gray-600">Secure storage and inventory management solutions</p>
                 </div>
+                </button>
                 <!-- Sea Freight -->
-                <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-		<img src="C:\Users\admin\Downloads\download.jpg"  width="300" height="200" alt="Logo">
-                    
+               <button onclick="openModal('s4')">
+                <div class="service-card bg-white rounded-lg shadow-lg p-1 text-center">
+		            <img src="C:\Users\admin\Desktop\Index.web\Sea-freight.jpg"  width="400" height="200" alt="sea-freight">
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Sea Freight</h3>
                     <p class="text-gray-600">Cost-effective ocean shipping solutions for large cargo volumes worldwide</p>
                 </div>
-                
+               </button> 
                 <!-- Air Freight -->
+               <button onclick="openModal('s5')">
                 <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
                     <svg class="w-16 h-16 mx-auto mb-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
@@ -493,8 +907,9 @@
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Air Freight</h3>
                     <p class="text-gray-600">Fast and secure air cargo services for time-sensitive shipments</p>
                 </div>
-                
+               </button> 
                 <!-- Road Transportation -->
+               <button onclick="openModal('s6')">
                 <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
                     <svg class="w-16 h-16 mx-auto mb-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M18 18.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zM19.5 9.5h-1V8h-2v1.5h-11V8H3v1.5H1.5c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5H3v-2h2v2h10v-2h2v2h1.5c.83 0 1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zM8 18.5c0-.83-.67-1.5-1.5-1.5S5 17.67 5 18.5 5.67 20 6.5 20 8 19.33 8 18.5z"/>
@@ -502,8 +917,9 @@
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Road Transportation</h3>
                     <p class="text-gray-600">Reliable ground transportation for domestic and cross-border deliveries</p>
                 </div>
-                
+               </button> 
                 <!-- Custom Clearance -->
+               <button onclick="openModal('s7')">  
                 <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
                     <svg class="w-16 h-16 mx-auto mb-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
@@ -511,37 +927,165 @@
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Custom Clearance</h3>
                     <p class="text-gray-600">Expert customs documentation and clearance services</p>
                 </div>
-                
+               </button> 
                 
                 <!-- Projects -->
+               <button onclick="openModal('s8')">  
                 <div class="service-card bg-white rounded-lg shadow-lg p-6 text-center">
-		<a href="#">
                     <svg class="w-16 h-16 mx-auto mb-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                     </svg>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Projects</h3></a>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Projects</h3>
                     <p class="text-gray-600">End-to-end project logistics for complex industrial requirements</p>
                 </div>
+               </button> 
             </div>
         </div>
     </section>
+    <!--service modal-->
+    <div id="s1" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Exhibitions</h3>
+                    <button onclick="closeModal('s1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> 
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div id="s2" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Onsite-Handling</h3>
+                    <button onclick="closeModal('s1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="s3" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Warehousing</h3>
+                    <button onclick="closeModal('s1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="s4" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Sea Freight</h3>
+                    <button onclick="closeModal('s1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="s5" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Air Freight</h3>
+                    <button onclick="closeModal('s1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="s6" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Road Transportation</h3>
+                    <button onclick="closeModal('s1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="s7" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Custom Clearance</h3>
+                    <button onclick="closeModal('s1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="s8" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-black rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold" style="color: #FFD700;">Projects</h3>
+                    <button onclick="closeModal('s1')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> <img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"><img src="C:\Users\admin\Desktop\Index.web\BG_1.png"> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Presence-->
+    <section class="ourclients" id="ourclients">
+        <div class="container1" style="padding-bottom: 80px;">
+        <div class="row" style="width: 1933px;height: 2px;">
+        <div class="elegant-serif font-bold animated-text text-white px-4">OUR PRESENCE </div>
+        </div>
+        </div>
+      <div style="overflow: hidden; width: 100%;">
+        <div style="display: flex; animation: scroll 15s linear infinite;"><img src="C:\Users\admin\Downloads\DubaiAirshow.png" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="C:\Users\admin\Downloads\images.png" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="C:\Users\admin\Downloads\inmex-smm-india-seeklogo.png" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="C:\Users\admin\Downloads\Logo WNE non millesime.png" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="C:\Users\admin\Downloads\PPP0202025.png" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="C:\Users\admin\Downloads\anuga.png" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="C:\Users\admin\Downloads\GTe-logo-s-h-min-1.png" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="https://picsum.photos/250/150?random=3" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="https://picsum.photos/250/150?random=4" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;"> <img src="https://picsum.photos/250/150?random=5" style="width: 250px; height: 150px; margin-right: 15px; flex-shrink: 0;">
+        </div>
+      </div>
+        <style>
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        </style>
+    </section>
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white py-1">
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center mb-4">
-                        <svg class="w-8 h-8 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2zm16-5l4-4v3h4v2h-4v3l-4-4z"/>
-                        </svg>
+                        <img src="" style="width: 50px; height: 50px;" alt="logo";> 
                         <div>
                             <h3 class="text-xl font-bold">BIG Logistics</h3>
                             <p class="text-sm text-gray-300">India Pvt. Ltd.</p>
                         </div>
                     </div>
-                    <p class="text-gray-300">Your trusted logistics partner for comprehensive freight and transportation solutions worldwide.</p>
+                    <p class="text-gray-300">Your trusted logistics partner for comprehensive Fair & Events solutions worldwide.</p>
                 </div>
                 
                 <!-- Quick Links -->
@@ -564,7 +1108,7 @@
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                             </svg>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-green-400 transition duration-300" title="WhatsApp">
+                        <a href="https://wa.me/918800198041?text=Hello%20" class="text-gray-300 hover:text-green-400 transition duration-300" title="WhatsApp">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.488"/>
                             </svg>
@@ -588,7 +1132,7 @@
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <div class="border-t border-gray-700 mt-8 pt-5 text-center">
                 <p class="text-gray-300">&copy;@2024 BIG Logistics India Pvt. Ltd. All rights reserved.</p>
             </div>
         </div>
@@ -640,6 +1184,39 @@
             }
         });
     </script>
+
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                const modalId = event.target.id;
+                closeModal(modalId);
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const openModals = document.querySelectorAll('.modal:not(.hidden)');
+                openModals.forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
+    </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c5f5b5d648a701',t:'MTc2MDA5NzY1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
