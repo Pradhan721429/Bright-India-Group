@@ -71,318 +71,10 @@
         .mobile-menu.active {
             transform: translateX(0);
         }
-
-	.embossed-text {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #c0c0c0;
-            text-shadow: 1px 1px 0px #ffffff, -1px -1px 0px #95a5a6;
-        }
-
-	 .wave-text {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ffffe6;
-        }
-
-        .wave-text span {
-            display: inline-block;
-            animation: wave 2s ease-in-out infinite;
-        }
-
-        .wave-text span:nth-child(1) { animation-delay: 0s; }
-        .wave-text span:nth-child(2) { animation-delay: 0.1s; }
-        .wave-text span:nth-child(3) { animation-delay: 0.2s; }
-        .wave-text span:nth-child(4) { animation-delay: 0.3s; }
-        .wave-text span:nth-child(5) { animation-delay: 0.4s; }
-        .wave-text span:nth-child(6) { animation-delay: 0.5s; }
-        .wave-text span:nth-child(7) { animation-delay: 0.6s; }
-        .wave-text span:nth-child(8) { animation-delay: 0.7s; }
-	    .wave-text span:nth-child(9) { animation-delay: 0.8s; }
-	    .wave-text span:nth-child(10) { animation-delay: 0.9s; }
-	    .wave-text span:nth-child(11) { animation-delay: 0.10s; }
-	    .wave-text span:nth-child(12) { animation-delay: 0.11s; }
-	    .wave-text span:nth-child(13) { animation-delay: 0.12s; }
-	    .wave-text span:nth-child(14) { animation-delay: 0.13s; }
-	    .wave-text span:nth-child(15) { animation-delay: 0.14s; }
-
-        @keyframes wave {
-            0%, 40%, 100% { transform: translateY(0); }
-            20% { transform: translateY(-20px); }
-        }
-
-	.script-fancy {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffe6;
-        }
-    .elegant-serif {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2c3e50;
-        }    
-
-         .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        .dropdown-menu {
-            transition: opacity 1s ease;
-        }
-    </style>
-    <style>
-        body {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            min-height: 100%;
-            overflow-x: hidden;
-        }
-
-        
-
-       .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        } 
-     
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-box {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 0.75rem 0.5rem;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            animation: slideInUp 0.8s ease-out both;
-        }
-
-        .stat-box:nth-child(1) { animation-delay: 0.1s; }
-        .stat-box:nth-child(2) { animation-delay: 0.2s; }
-        .stat-box:nth-child(3) { animation-delay: 0.3s; }
-        .stat-box:nth-child(4) { animation-delay: 0.4s; }
-        .stat-box:nth-child(5) { animation-delay: 0.5s; }
-
-        .stat-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s;
-        }
-
-        .stat-box:hover::before {
-            left: 100%;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .stat-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.25rem;
-            display: block;
-            animation: bounce 2s infinite;
-        }
-
-        .stat-number {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 0.2rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.2rem;
-        }
-
-        .stat-description {
-            font-size: 0.6rem;
-            color: #777;
-            font-weight: 400;
-            line-height: 1.2;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 2px;
-            background: rgba(102, 126, 234, 0.2);
-            border-radius: 1px;
-            margin-top: 0.3rem;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-            width: 0%;
-            transition: width 2s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        @keyframes countUp {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-        }
-
-        /* Medium screens (tablets) */
-        @media (max-width: 1024px) {
-            .stats-container {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
-            }
-        }
-
-        /* Small screens (mobile) */
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .stat-box {
-                padding: 0.75rem 0.5rem;
-            }
-            
-            .stat-number {
-                font-size: 1.4rem;
-            }
-            
-            .stat-icon {
-                font-size: 1.3rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 2rem 1rem;
-            }
-            
-            .main-title {
-                font-size: 2rem;
-            }
-            
-            .stat-number {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+	    </style>
+	 <link href="css1.1.css" rel="stylesheet">
+     <link href="css1.2.css" rel="stylesheet">
+    
 </head>
 <body class="font-sans">
     <!-- Header -->
@@ -589,96 +281,8 @@
      </div>
     </div>
    </div>
-  <script>
-        // Counter Animation Function
-        function animateCounter(element, target, duration = 2000, suffix = '') {
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                
-                let displayValue = Math.floor(current);
-                if (suffix === '%') {
-                    element.textContent = displayValue + '%';
-                } else if (target >= 1000) {
-                    element.textContent = displayValue.toLocaleString() + '+';
-                } else {
-                    element.textContent = displayValue + '+';
-                }
-            }, 16);
-        }
-
-        // Progress Bar Animation
-        function animateProgressBar(progressBar, percentage) {
-            setTimeout(() => {
-                progressBar.style.width = percentage + '%';
-            }, 500);
-        }
-
-        // Intersection Observer for triggering animations
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    const progressFill = entry.target.querySelector('.progress-fill');
-                    const target = parseInt(statNumber.dataset.target);
-                    
-                    // Determine suffix and progress percentage
-                    let suffix = '+';
-                    let progressPercentage = 100;
-                    
-                    if (entry.target.querySelector('.stat-label').textContent.includes('Repeat Customers')) {
-                        suffix = '%';
-                        progressPercentage = target;
-                    }
-                    
-                    // Start counter animation
-                    animateCounter(statNumber, target, 2500, suffix);
-                    
-                    // Start progress bar animation
-                    animateProgressBar(progressFill, progressPercentage);
-                    
-                    // Unobserve after animation starts
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all stat boxes
-        document.addEventListener('DOMContentLoaded', () => {
-            const statBoxes = document.querySelectorAll('.stat-box');
-            statBoxes.forEach(box => {
-                observer.observe(box);
-            });
-        });
-
-        // Add some interactive hover effects
-        document.querySelectorAll('.stat-box').forEach(box => {
-            box.addEventListener('mouseenter', () => {
-                const icon = box.querySelector('.stat-icon');
-                icon.style.transform = 'scale(1.2) rotate(10deg)';
-                icon.style.transition = 'transform 0.3s ease';
-            });
-            
-            box.addEventListener('mouseleave', () => {
-                const icon = box.querySelector('.stat-icon');
-                icon.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-    </script>
-
-        </section>
+	  <script src="js1.2.js"></script>
+</section>
 
         <!-- Mission, Vision, Values Section -->
         <section class="grid md:grid-cols-3 gap-8">
@@ -725,9 +329,9 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Values</h3>
                 <p class="text-gray-600 mb-6 leading-relaxed">
-                 • Transparency both towards our clients as well as employees
-• Striving for excellence for the betterment of our cleients and our growth
-• Initiating and performing all actions keeping the well being of our clients in mind
+                 • Transparency both towards our clients as well as employees</br>
+• Striving for excellence for the betterment of our cleients and our growth</br>
+• Initiating and performing all actions keeping the well being of our clients in mind</br>
                 </p>
                 <button onclick="openModal('valuesModal')" class="bg-green-50 hover:bg-green-500 text-blue-700 font-semibold underline py-1 px-2 rounded-lg transition duration-300">
                     Read More
@@ -810,15 +414,14 @@
                 <div class="space-y-4 text-gray-700">
                     <p>Our vision for the future encompasses:</p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>Digital Transformation:</strong> Leading the industry in AI-powered logistics optimization</li>
-                        <li><strong>Sustainable Operations:</strong> Achieving carbon neutrality across all operations by 2030</li>
-                        <li><strong>Global Connectivity:</strong> Bridging markets and enabling seamless international commerce</li>
-                        <li><strong>Community Impact:</strong> Supporting local communities through job creation and economic development</li>
-                        <li><strong>Customer Excellence:</strong> Setting new standards for service quality and customer satisfaction</li>
+                        <li><strong>Connecting the World:</strong> We aim to bridge all corners of the globe through a diversified network of land, air, and sea services.</li>
+                        <li><strong>Showcasing Innovation:</strong> Exhibitions are the best platform to display technological, defense, cultural, and other advancements from around the world.</li>
+                        <li><strong>Accelerating Global Progress:</strong> With countries progressing at different rates, our goal is to bring everyone together by sharing the latest innovations through seamless exhibitions.</li>
+                        <li><strong>Creating a Reliable Network:</strong> BIG Logistics strives to develop a well-knit, one-stop, dependable global network at competitive rates, ensuring smooth connectivity for all.</li>
+                        <li><strong>Committed to Excellence:</strong> Our core value is to serve with dedication, making each exhibition a seamless experience for organizers and the public alike.</li>
                     </ul>
-                    <p>We envision a world where distance is no barrier to business success, where small companies can compete globally, and where logistics operations contribute positively to environmental sustainability.</p>
-                    <p>By 2030, we aim to be the first choice for businesses seeking logistics partners who understand that moving goods is about moving dreams, opportunities, and progress forward.</p>
-                </div>
+                    <p><i>--Seamless Solutions, Worldwide Reach--</i></p>
+				</div>
             </div>
         </div>
     </div>
@@ -832,22 +435,16 @@
                     <button onclick="closeModal('valuesModal')" class="text-gray-500 hover:text-red-700 text-2xl font-bold">×</button>
                 </div>
                 <div class="space-y-4 text-gray-700">
-                    <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Integrity</h4>
-                        <p>We conduct business with honesty, transparency, and ethical practices. Our word is our bond, and we take responsibility for our actions and commitments.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Excellence</h4>
-                        <p>We strive for perfection in every aspect of our operations, continuously improving our services and exceeding customer expectations through attention to detail and quality.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Innovation</h4>
-                        <p>We embrace change and invest in new technologies, processes, and ideas that drive efficiency and create value for our customers and stakeholders.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Customer-Centricity</h4>
-                        <p>Our customers are at the heart of everything we do. We listen, understand their needs, and tailor our solutions to help them achieve their business objectives.</p>
-                    </div>
+                    <p>The Values of Big Logistics are:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Transparency</strong> - Transparency both towards our clients as well as employees</li>
+                        <li><strong>Teamwork</strong> - Carrying everyone together following the down-up approach.</li>
+                        <li><strong>Excellence</strong> - Striving for excellence for the betterment of our cleients and our growth.</li>
+                        <li><strong>Client Focus</strong> - Initiating and performing all actions keeping the well being of our clients in mind.</li>
+                        <li><strong>Employee Orientation</strong> - Taking care of the most important stakeholder – the employee.</li>
+                        <li><strong> Diversification</strong> - Exploring all options for a complete solution.</li>
+                    </ul>
+                    
                 </div>
             </div>
         </div>
@@ -1214,8 +811,10 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c5f5b5d648a701',t:'MTc2MDA5NzY1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+	 <script src="java1.1.js"></script>
+</body>
 </html>
+
 
 
 
