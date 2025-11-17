@@ -1,8 +1,5 @@
 
-        .scroll-container {
-            overflow: hidden;
-            background: #fff;
-        }
+       
 
         .scroll-track {
             display: flex;
@@ -23,9 +20,7 @@
         }
 
         /* Desktop Styles (default) */
-        .scroll-container {
-            height: 0px;
-        }
+        
 
         .scroll-track {
             animation: scrollDesktop 18s linear infinite;
@@ -49,9 +44,7 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
            
-            .scroll-container {
-                height: 0px;
-            }
+           
 
             .image-item {
                 width: 180px;
@@ -62,16 +55,14 @@
 
         /* Very small mobile screens */
         @media (max-width: 480px) {
-           .scroll-container {
-                height: 160px;
-            }
-
+          
             .image-item {
                 width: 140px;
                 height: 80px;
                 margin-right: 10px;
             }
         }
+
 
 
 
