@@ -1,5 +1,7 @@
-
-       
+        .scroll-container {
+            overflow: hidden;
+            background: linear-gradient(90deg, transparent, rgba(228, 132, 7, 0.041), transparent);
+        }
 
         .scroll-track {
             display: flex;
@@ -63,6 +65,7 @@
                 margin-right: 10px;
             }
         }
+
 
 
 
