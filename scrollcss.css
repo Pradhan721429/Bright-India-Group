@@ -23,7 +23,8 @@
         
 
         .scroll-track {
-            animation: scrollDesktop 18s linear infinite;
+            animation: scrollDesktop 30s linear infinite;
+            width: calc((250px + 20px) * 30); /* Width for all 30 images (15 original + 15 duplicates) */
         }
 
         .image-item {
@@ -32,12 +33,12 @@
             margin-right: 20px;
         }
 
-        @keyframes scrollDesktop {
+       @keyframes scrollDesktop {
             0% {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-1 * (250px + 20px) * 15)); /* Move exactly 15 images worth for seamless loop */
             }
         }
 
@@ -62,6 +63,7 @@
                 margin-right: 10px;
             }
         }
+
 
 
 
