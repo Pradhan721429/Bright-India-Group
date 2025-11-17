@@ -1,4 +1,5 @@
- .scroll-container {
+
+        .scroll-container {
             overflow: hidden;
             background: #fff;
         }
@@ -27,12 +28,12 @@
         }
 
         .scroll-track {
-            animation: scrollDesktop 20s linear infinite;
+            animation: scrollDesktop 25s linear infinite;
         }
 
         .image-item {
             width: 250px;
-            height: 150px;
+            height: 300px;
             margin-right: 20px;
         }
 
@@ -48,7 +49,7 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
             .gallery-container {
-                width: 50%;
+                width: 95%;
                 margin: 1rem 0.5rem;
             }
 
@@ -68,23 +69,10 @@
                 height: 200px;
             }
 
-            .scroll-track {
-                animation: scrollMobile 15s linear infinite;
-            }
-
             .image-item {
                 width: 180px;
-                height: 120px;
-                margin-right: 10px;
-            }
-
-            @keyframes scrollMobile {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-50%);
-                }
+                height: 200px;
+                margin-right: 12px;
             }
         }
 
@@ -112,5 +100,4 @@
                 height: 160px;
                 margin-right: 10px;
             }
-
         }
