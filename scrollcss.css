@@ -1,0 +1,115 @@
+ .scroll-container {
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .scroll-track {
+            display: flex;
+            height: 100%;
+        }
+
+        .image-item {
+            flex-shrink: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Desktop Styles (default) */
+        .scroll-container {
+            height: 300px;
+        }
+
+        .scroll-track {
+            animation: scrollDesktop 20s linear infinite;
+        }
+
+        .image-item {
+            width: 250px;
+            height: 150px;
+            margin-right: 20px;
+        }
+
+        @keyframes scrollDesktop {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .gallery-container {
+                width: 95%;
+                margin: 1rem 0.5rem;
+            }
+
+            .gallery-header {
+                padding: 1.5rem 1rem;
+            }
+
+            .gallery-title {
+                font-size: 1.5rem;
+            }
+
+            .gallery-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .scroll-container {
+                height: 200px;
+            }
+
+            .scroll-track {
+                animation: scrollMobile 15s linear infinite;
+            }
+
+            .image-item {
+                width: 180px;
+                height: 120px;
+                margin-right: 10px;
+            }
+
+            @keyframes scrollMobile {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+        /* Very small mobile screens */
+        @media (max-width: 480px) {
+            .gallery-container {
+                width: 98%;
+                margin: 0.5rem;
+            }
+
+            .gallery-header {
+                padding: 1rem;
+            }
+
+            .gallery-title {
+                font-size: 1.3rem;
+            }
+
+            .scroll-container {
+                height: 160px;
+            }
+
+            .image-item {
+                width: 140px;
+                height: 160px;
+                margin-right: 10px;
+            }
+        }
