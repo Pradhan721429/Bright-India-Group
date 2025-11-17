@@ -24,11 +24,11 @@
 
         /* Desktop Styles (default) */
         .scroll-container {
-            height: 300px;
+            height: 0px;
         }
 
         .scroll-track {
-            animation: scrollDesktop 25s linear infinite;
+            animation: scrollDesktop 18s linear infinite;
         }
 
         .image-item {
@@ -50,7 +50,7 @@
         @media (max-width: 768px) {
            
             .scroll-container {
-                height: 200px;
+                height: 0px;
             }
 
             .image-item {
@@ -72,5 +72,6 @@
                 margin-right: 10px;
             }
         }
+
 
 
