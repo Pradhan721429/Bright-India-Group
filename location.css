@@ -1,0 +1,230 @@
+ body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #3d2817 0%, #f59e0b 100%);
+      min-height: 100%;
+      width: 100%;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      min-height: 100%;
+      padding: 48px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .company-name {
+      font-size: 36px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .page-title {
+      font-size: 20px;
+      color: #e0e7ff;
+      font-weight: 400;
+    }
+
+    .content-grid {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .locations-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .location-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 0;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: auto;
+      border: 2px solid transparent;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 0;
+      position: relative;
+    }
+
+    .location-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+      transition: width 0.3s ease;
+    }
+
+    .location-card.head-office::before {
+      background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+    }
+
+    .location-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .location-card.head-office:hover {
+      border-color: rgba(220, 38, 38, 0.3);
+    }
+
+    .location-card:hover::before {
+      width: 6px;
+    }
+
+    .card-content {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-map {
+      position: relative;
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 140px;
+      border-left: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .location-card.head-office .card-map {
+      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    }
+
+    .mini-map {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .mini-map:hover {
+      transform: scale(1.05);
+    }
+
+    .location-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .location-icon {
+      font-size: 28px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: transform 0.3s ease;
+    }
+
+    .location-card:hover .location-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .location-type {
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+    }
+
+    .location-card.head-office .location-type {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+    }
+
+    .location-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .location-address {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .map-marker-mini {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #dc2626;
+      border: 2px solid #ffffff;
+      border-radius: 50% 60% 50% 0;
+      transform: rotate(-45deg);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .location-card:not(.head-office) .map-marker-mini {
+      background: #f59e0b;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: rotate(-45deg) translateY(0);
+      }
+      50% {
+        transform: rotate(-45deg) translateY(-8px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .location-card {
+        grid-template-columns: 1fr;
+      }
+
+      .card-map {
+        min-height: 120px;
+        border-left: none;
+        border-top: 1px solid rgba(0,0,0,0.05);
+      }
+
+      .company-name {
+        font-size: 28px;
+      }
+
+      .page-title {
+        font-size: 16px;
+      }
+
+      .page-wrapper {
+        padding: 24px 16px;
+      }
+
+      .locations-list {
+        gap: 12px;
+      }
+    }
