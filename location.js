@@ -1,4 +1,22 @@
- const defaultConfig = {
+    function toggleMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+    }
+
+    function scrollToSection(section) {
+      // Close mobile menu if open
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.remove('active');
+      
+      // Update active state
+      document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // For demo purposes - in a real application, this would scroll to the section
+      console.log('Navigating to:', section);
+    }
+
+    const defaultConfig = {
       company_name: "BIG Logistics India Pvt. Ltd.",
       page_title: "Our Locations Across India",
       head_office_label: "Head Office",
