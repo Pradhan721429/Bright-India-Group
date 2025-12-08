@@ -5,7 +5,7 @@
                 category: 'warehouse',
                 title: 'Modern Warehouse Facility',
                 description: 'Our state-of-the-art 30,000 sq ft warehouse with advanced inventory management systems',
-                image: 'w1.jpg'
+                image: './w1.jpg'
             },
             {
                 id: 2,
@@ -19,7 +19,7 @@
                 category: 'operations',
                 title: 'Cargo Loading Operations',
                 description: 'Efficient loading operations with trained personnel and modern equipment',
-                image: 'o1.jpg'
+                image: './o1.jpg'
             },
             {
                 id: 4,
@@ -54,7 +54,7 @@
                 category: 'operations',
                 title: 'Heavy Machinery Handling',
                 description: 'Lifting heavy machine using 5T forklift at GTE Ahmedabad',
-                image: 'Onsite_G.jpeg'
+                image: './Onsite_G.jpeg'
             },
             {
                 id: 9,
@@ -532,3 +532,4 @@
             });
 
         });
+
