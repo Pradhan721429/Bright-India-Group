@@ -5,7 +5,7 @@
                 category: 'warehouse',
                 title: 'Modern Warehouse Facility',
                 description: 'Our state-of-the-art 30,000 sq ft warehouse with advanced inventory management systems',
-                image: './img/w1.jpg'
+                image: 'w1.jpg'
             },
             {
                 id: 2,
@@ -19,7 +19,7 @@
                 category: 'operations',
                 title: 'Cargo Loading Operations',
                 description: 'Efficient loading operations with trained personnel and modern equipment',
-                image: './img/o1.jpg'
+                image: 'o1.jpg'
             },
             {
                 id: 4,
@@ -54,7 +54,7 @@
                 category: 'operations',
                 title: 'Heavy Machinery Handling',
                 description: 'Lifting heavy machine using 5T forklift at GTE Ahmedabad',
-                image: './img/Onsite_G.jpeg'
+                image: 'Onsite_G.jpeg'
             },
             {
                 id: 9,
@@ -82,49 +82,49 @@
                 category: 'operations',
                 title: 'Machine shifting',
                 description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                image: 'F1.jpeg'
             },
             {
                 id: 13,
                 category: 'operations',
                 title: 'Machine Placing',
                 description: 'Placing ponderous machine in exhibition stand at CPHI/PMEC Noida',
-                image: './img/Onsite_Pmec.jpg'
+                image: 'Onsite_Pmec.jpg'
             },
             {
                 id: 14,
                 category: 'operations',
                 title: 'Air Cargo Operations',
                 description: 'Express air freight services for time-sensitive shipments',
-                image: './img/onsite_gte.gif'
+                image: 'onsite_gte.gif'
             },
             {
                 id: 15,
                 category: 'operations',
                 title: 'Machine shifting',
                 description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                image: 'F1.jpeg'
             },
             {
                 id: 16,
                 category: 'operations',
                 title: 'Machine shifting',
                 description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                image: 'F1.jpeg'
             },
             {
                 id: 17,
                 category: 'operations',
                 title: 'Machine shifting',
                 description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                image: 'F1.jpeg'
             },
             {
                 id: 18,
                 category: 'operations',
                 title: 'Machine shifting',
                 description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                image: 'F1.jpeg'
             },
             {
                 id: 19,
@@ -530,4 +530,5 @@
                 navLinks.forEach(l => l.classList.remove('bg-blue-600', 'text-white'));
                 this.classList.add('bg-blue-600', 'text-white');
             });
+
         });
