@@ -1,0 +1,18 @@
+.gallery-container {
+            width: 100%;
+            max-width: px;
+            background: linear-gradient(to bottom, 
+                #0f2027 0%,
+                #203a43 15%,
+                #2c5364 25%,
+                #8b4f6f 40%,
+                #d4637c 55%,
+                #ff8b6a 70%,
+                #ffb88c 85%,
+                #ffd4a3 100%);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
