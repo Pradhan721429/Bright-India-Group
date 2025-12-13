@@ -10,7 +10,7 @@
             box-sizing: border-box;
         }
         
-        .hero-background {
+        hero-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -33,7 +33,7 @@
         }
         
         .hero-overlay {
-            background: rgba(10, 54, 98, 0.35);
+            background: rgba(5, 4, 3, 0.24);
             position: absolute;
             top: 0;
             left: 0;
@@ -91,8 +91,8 @@
 </head>
 <body class="font-sans">
     <!-- Header -->
-    <header class="bg-white shadow-lg fixed w-full top-0 z-50">
-        <div class="container mx-auto px-2 py-3">
+    <section class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-0 py-1">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="grid-cols-1">
@@ -142,10 +142,21 @@
                 </nav>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center">
+    <section id="home" class="relative min-h-screen flex items-center justify-center" style="
+    background-image: url('Hero.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+">
         <!-- Animated Background -->
         <div class="hero-background"></div>
         
@@ -335,7 +346,7 @@
        <div class="w-16 h-1 mx-auto mb-3 rounded-full" style="background: linear-gradient(90deg, currentColor, transparent);"></div>
        <p class="text-sm opacity-70 leading-relaxed">Indian Exhibition Industry Association</p>
       </div>
-      <div class="membership-card p-8 rounded-3xl text-center reveal bounce-in" style="animation-delay: 0.1s;"><a href="http://www.afeca.com/">
+      <div class="membership-card p-8 rounded-3xl text-center reveal bounce-in" style="animation-delay: 0.1s;"><a href="https://afeca.asia/">
        <div class="inline-block mb-4 p-6 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
         <div class="membership-icon text-5xl">
          🌐
@@ -497,7 +508,7 @@
                     <h3 class="text-2xl font-bold" style="color: #FFD700;">From the Desk of President - Mr. Uttam Gupta</h3>
                     <button onclick="closeModal('more2')" class="text-white hover:text-red-700 text-2xl font-bold">×</button>
                 </div>
-                <div class="space-y-4" style="color: #FFD700;">
+                <div class="space-y-4" style="color: #ffffff;">
                     <p>In my experience of more than 25 years in this industry, I have had a few learnings of my own.</p>
                     <p>We are living in an age of “VUCA times”. VUCA generally stands for – Volatility, uncertainty, complexity and ambiguity. However, due to the dynamic nature of world which we are living in, the new VUCA should be – Vulnerability, ulterior, contradictory and abnegation:</p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
@@ -674,7 +685,7 @@
 				<!-- International Freight Forwarding -->
                <button onclick="openModal('s9')">  
                 <div class="service-card bg-white rounded-lg shadow-lg p-1 text-center">
-                     <img src="####"  style="width: 450px; height: 180px;" alt="Custom">
+                     <img src="Int_Frgt.jpeg"  style="width: 450px; height: 180px;" alt="Custom">
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">International Freight Forwarding</h3>
                     <p class="text-gray-600 italic">Fast, safe, and reliable international freight solutions.</p>
                 </div>
@@ -1229,6 +1240,7 @@
 	 <script src="java1.1.js"></script>
 </body>
 </html>
+
 
 
 
