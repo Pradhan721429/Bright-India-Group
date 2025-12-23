@@ -85,6 +85,10 @@
 	     .nav-button:hover::before {
 	        width: 100%;
 	     }
+		.star { cursor:pointer; transition:.2s }
+.star:hover { transform:scale(1.15) }
+.star.filled { color:#fbbf24 }
+.star.empty { color:#d1d5db }
 	    </style>
 	 <link href="css1.1.css" rel="stylesheet">
      <link href="css1.2.css" rel="stylesheet">
@@ -96,7 +100,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="grid-cols-1">
-		           <a href="https://pradhan721429.github.io/Bright-India-Group/"><img src="logo_bgr.png" width="95" height="100" alt="Logo"></a>
+		           <a href="https://pradhan721429.github.io/Bright-India-Group/"><img src="logo_bgrm.png" width="95" height="105" alt="Logo"></a>
                     <h1 class="text-xl font-bold" style="color: #532703;"></h1>
                 </div>
                 
@@ -188,48 +192,125 @@
     <section id="about" class=" rounded-xl shadow-lg p-8 mb-0 parallax-section" style="background: linear-gradient(to bottom right, #ffffff 0%, #f8f6f3f5 100%);">
     <div class="max-w-6xl mx-auto">
      <h2 class="text-4xl font-bold mb-4 text-center decorative-line">About Our Company</h2>
-     <p class="text-center mb-12 text-xl opacity-90">Excellence in Global Logistics</p>
-     <p id="about-intro" class="text-lg leading-relaxed mb-10 text-decoration max-w-6xl mx-auto">At BIG LOGISTICS INDIA, our target is to provide all exhibition and event related services under single roof for all air, sea and by road shipments.
-        With decades of experience in the logistics industry, we specialize in comprehensive freight forwarding solutions and on-site exhibition operations to every corners of the world. Our commitment to excellence and customer satisfaction has made us a leader in the global logistics sector.<a href="#more1" onclick="openModal('more1')" class="hover:text-blue-700 underline py-1 px-2 rounded-lg transition duration-300">more...</a>
+     <h2 class="animated-text text-2xl font-bold mb-1 text-center">Excellence in Global Logistics</h2>
+     <p id="about-intro" class="text-lg leading-relaxed mb-10 text-decoration max-w-6xl mx-auto">At BIG LOGISTICS INDIA(Bright-India-Group), our target is to provide all exhibition and event related services under single roof for all air, sea and by road shipments.
+        With decades of experience in the logistics industry, we specialize in comprehensive freight forwarding solutions and on-site exhibition operations covered every corners of the world. Our commitment to excellence and customer satisfaction has made us One of the key dependable & trustworthy service provider in this segment.
             </p>
+		<h2 class="animated-text text-2xl font-bold mb-1 text-center">Evoluation Growth & Progress</h2>
+		<p>##########</p>
+		<h2 class="animated-text text-2xl font-bold mb-1 text-center">About our journey </h2>
+		<p>#########  <a href="#more1" onclick="openModal('more1')" class="hover:text-blue-700 py-1 px-2 rounded-lg transition duration-300">more...</a></p>
+		<!-- Open Button -->
+             <div style="text-align: center;">
+  <button onclick="openModal('form')" class="animated-text px-5 py-1 mb-4 bg-indigo-100 hover:text-white hover:bg-indigo-400 text-black text-lg rounded-2xl font-semibold shadow-lg">
+     →Drop your valuable counsel←
+  </button>
+</div>        
+ 
+
+<!-- Modal -->
+<div id="form" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in" style="background: linear-gradient(to bottom right, #fffffff6 40%, #9b9b9af5 100%);">
+
+
+<button onclick="closeModal(form)" class="absolute top-4 right-4 text-white-400 hover:text-red-600">✕</button>
+
+<!-- SUCCESS -->
+<div id="successBox" class="hidden text-center">
+<h2 class="text-2xl font-bold mb-3">Thank you for your feedback!</h2>
+<p class="text-gray-600 mb-6">Your response has been sent successfully.</p>
+<button onclick="closeModal()" class="px-6 py-3 bg-indigo-600 text-white rounded-xl">Close</button>
+</div>
+
+<!-- FORM -->
+<form id="feedbackForm"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      class="space-y-5 px-4">
+
+<input type="hidden" name="access_key" value="c1a0f3ee-eb40-492b-a2e4-574f7638a382">
+<input type="hidden" name="subject" value="Customer Satisfaction Feedback">
+<input type="hidden" name="from_name" value="Customer Feedback Form">
+<input type="hidden" name="rating" id="rating">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-bold">Customer Satisfaction Survey</h2>
+<button onclick="closeModal('form')" class="text-white hover:text-red-600 text-2xl font-bold">×</button>
+</div>
+<p class="text-gray-600">We value your feedback</p>
+
+<div class="grid md:grid-cols-2 gap-4">
+<input required name="name" placeholder="Enter your full Name" class="border p-3 rounded-lg">
+<input required name="company" placeholder="Company Name" class="border p-3 rounded-lg">
+<input required name="contact" placeholder="Contact Number(+91 0000000000)" class="border p-3 rounded-lg">
+<input required type="email" name="email" placeholder="drop your email Address" class="border p-3 rounded-lg">
+</div>
+
+<select required name="country" class="border p-3 rounded-lg w-full">
+<option value="">Select Country</option>
+<option>Afghanistan</option> <option>Albania</option> <option>Algeria</option> <option>Andorra</option> <option>Angola</option> <option>Antigua and Barbuda</option> <option>Argentina</option> <option>Armenia</option> <option>Australia</option> <option>Austria</option> <option>Azerbaijan</option> <option>Bahamas</option> <option>Bahrain</option> <option>Bangladesh</option> <option>Barbados</option> <option>Belarus</option> <option>Belgium</option> <option>Belize</option> <option>Benin</option> <option>Bhutan</option> <option>Bolivia</option> <option>Bosnia and Herzegovina</option> <option>Botswana</option> <option>Brazil</option> <option>Brunei</option> <option>Bulgaria</option> <option>Burkina Faso</option> <option>Burundi</option> <option>Cabo Verde</option> <option>Cambodia</option> <option>Cameroon</option> <option>Canada</option> <option>Central African Republic</option> <option>Chad</option> <option>Chile</option> <option>China</option> <option>Colombia</option> <option>Comoros</option> <option>Congo (Congo-Brazzaville)</option> <option>Costa Rica</option> <option>Croatia</option> <option>Cuba</option> <option>Cyprus</option> <option>Czechia (Czech Republic)</option> <option>Denmark</option> <option>Djibouti</option> <option>Dominica</option> <option>Dominican Republic</option> <option>Ecuador</option> <option>Egypt</option> <option>El Salvador</option> <option>Equatorial Guinea</option> <option>Eritrea</option> <option>Estonia</option> <option>Eswatini (fmr. Swaziland)</option> <option>Ethiopia</option> <option>Fiji</option> <option>Finland</option> <option>France</option> <option>Gabon</option> <option>Gambia</option> <option>Georgia</option> <option>Germany</option> <option>Ghana</option> <option>Greece</option> <option>Grenada</option> <option>Guatemala</option> <option>Guinea</option> <option>Guinea-Bissau</option> <option>Guyana</option> <option>Haiti</option> <option>Honduras</option> <option>Hungary</option> <option>Iceland</option> <option>India</option> <option>Indonesia</option> <option>Iran</option> <option>Iraq</option> <option>Ireland</option> <option>Israel</option> <option>Italy</option> <option>Jamaica</option> <option>Japan</option> <option>Jordan</option> <option>Kazakhstan</option> <option>Kenya</option> <option>Kiribati</option> <option>Kosovo</option> <option>Kuwait</option> <option>Kyrgyzstan</option> <option>Laos</option> <option>Latvia</option> <option>Lebanon</option> <option>Lesotho</option> <option>Liberia</option> <option>Libya</option> <option>Liechtenstein</option> <option>Lithuania</option> <option>Luxembourg</option> <option>Madagascar</option> <option>Malawi</option> <option>Malaysia</option> <option>Maldives</option> <option>Mali</option> <option>Malta</option> <option>Marshall Islands</option> <option>Mauritania</option> <option>Mauritius</option> <option>Mexico</option> <option>Micronesia</option> <option>Moldova</option> <option>Monaco</option> <option>Mongolia</option> <option>Montenegro</option> <option>Morocco</option> <option>Mozambique</option> <option>Myanmar (formerly Burma)</option> <option>Namibia</option> <option>Nauru</option> <option>Nepal</option>
+	<option>Netherlands</option> <option>New Zealand</option> <option>Nicaragua</option> <option>Niger</option> <option>Nigeria</option> <option>North Korea</option> <option>North Macedonia (formerly Macedonia)</option> <option>Norway</option> <option>Oman</option> <option>Pakistan</option> <option>Palau</option> <option>Palestine State</option> <option>Panama</option> <option>Papua New Guinea</option> <option>Paraguay</option> <option>Peru</option> <option>Philippines</option> <option>Poland</option> <option>Portugal</option> <option>Qatar</option> <option>Romania</option> <option>Russia</option> <option>Rwanda</option> <option>Saint Kitts and Nevis</option> <option>Saint Lucia</option> <option>Saint Vincent and the Grenadines</option> <option>Samoa</option> <option>San Marino</option> <option>Sao Tome and Principe</option> <option>Saudi Arabia</option> <option>Senegal</option> <option>Serbia</option> <option>Seychelles</option> <option>Sierra Leone</option> <option>Singapore</option> <option>Slovakia</option> <option>Slovenia</option> <option>Solomon Islands</option> <option>Somalia</option> <option>South Africa</option> <option>South Korea</option> <option>South Sudan</option> <option>Spain</option> <option>Sri Lanka</option> <option>Sudan</option> <option>Suriname</option> <option>Sweden</option> <option>Switzerland</option> <option>Syria</option> <option>Taiwan</option> <option>Tajikistan</option> <option>Tanzania</option> <option>Thailand</option> <option>Timor-Leste</option> <option>Togo</option> <option>Tonga</option> <option>Trinidad and Tobago</option> <option>Tunisia</option> <option>Turkey</option> <option>Turkmenistan</option> <option>Tuvalu</option> <option>Uganda</option> <option>Ukraine</option> <option>United Arab Emirates</option> <option>United Kingdom</option> <option>United States</option> <option>Uruguay</option> <option>Uzbekistan</option> <option>Vanuatu</option> <option>Vatican City (Holy See)</option> <option>Venezuela</option> <option>Vietnam</option> <option>Yemen</option> <option>Zambia</option> <option>Zimbabwe</option>
+</select>
+
+<!-- RATING -->
+<div>
+<p class="font-medium mb-2">Rate Your Experience *</p>
+<div class="flex gap-2">
+<svg onclick="setRating(1)" class="star empty w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927l1.902 0 1.07 3.292h3.462l-2.8 2.034 1.07 3.292-2.8-2.034-2.8 2.034 1.07-3.292-2.8-2.034h3.462z"/></svg>
+<svg onclick="setRating(2)" class="star empty w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927l1.902 0 1.07 3.292h3.462l-2.8 2.034 1.07 3.292-2.8-2.034-2.8 2.034 1.07-3.292-2.8-2.034h3.462z"/></svg>
+<svg onclick="setRating(3)" class="star empty w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927l1.902 0 1.07 3.292h3.462l-2.8 2.034 1.07 3.292-2.8-2.034-2.8 2.034 1.07-3.292-2.8-2.034h3.462z"/></svg>
+<svg onclick="setRating(4)" class="star empty w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927l1.902 0 1.07 3.292h3.462l-2.8 2.034 1.07 3.292-2.8-2.034-2.8 2.034 1.07-3.292-2.8-2.034h3.462z"/></svg>
+<svg onclick="setRating(5)" class="star empty w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927l1.902 0 1.07 3.292h3.462l-2.8 2.034 1.07 3.292-2.8-2.034-2.8 2.034 1.07-3.292-2.8-2.034h3.462z"/></svg>
+</div>
+</div>
+
+<textarea required name="feedback" rows="4" class="border p-3 rounded-lg w-full" placeholder="Your feedback"></textarea>
+
+<button class="w-full py-4 bg-indigo-600 text-white rounded-xl font-semibold">
+Submit Feedback
+</button>
+
+</form>
+</div>
+</div>
         <!-- Services Grid with Enhanced Cards -->
+		 <h2 class="text-2xl font-bold mb-1 text-center">Our Core Operational Areas</h2>
      <div class="grid md:grid-cols-3 gap-8 mt-12" >
-      <div class="service-card p-8 rounded-2xl spotlight slide-in-left">
-       <div class="service-icon text-6xl mb-6 icon-pulse">
-        📦
-       </div>
-       <h3 class="text-2xl font-bold mb-4">Freight Forwarding</h3>
-       <p class="leading-relaxed mb-4">Comprehensive air, sea, and land freight solutions for businesses worldwide.</p>
-       <div class="flex items-center gap-2 mt-6">
-        <div class="w-12 h-1 rounded-full" style="background: linear-gradient(90deg, currentColor, transparent);"></div><span class="text-xs font-semibold uppercase tracking-wider opacity-70">Reliable</span>
-       </div>
-        <button onclick="openModal('l1')" class="hover:text-blue-700"><div class="mt-4 inline-block px-5 py-2 rounded-full text-sm font-semibold learn-more-badge">
-        Learn More →
-       </div></button>
-      </div>
-      <div class="service-card p-8 rounded-2xl spotlight fade-in-up" style="animation-delay: 0.2s;">
+		<div class="service-card p-8 rounded-2xl spotlight fade-in-up" style="animation-delay: 0.2s;">
        <div class="service-icon text-6xl mb-6 icon-pulse" style="animation-delay: 0.5s;">
         🏗️
        </div>
-       <h3 class="text-2xl font-bold mb-4">Exhibition Operations</h3>
+       <h3 class="text-2xl font-bold mb-4">Exhibition & Event Operations</h3>
        <p class="leading-relaxed mb-4">Expert on-site logistics management for exhibitions, trade shows, and events.</p>
-       <div class="flex items-center gap-2 mt-6">
+       <div class="flex items-center gap-2 mt-12">
         <div class="w-12 h-1 rounded-full" style="background: linear-gradient(90deg, currentColor, transparent);"></div><span class="text-xs font-semibold uppercase tracking-wider opacity-70">Professional</span>
        </div>
        <button onclick="openModal('l2')" class="hover:text-blue-700"><div class="mt-4 inline-block px-5 py-2 rounded-full text-sm font-semibold learn-more-badge">
         Learn More →
        </div></button>
       </div>
-      <div class="service-card p-8 rounded-2xl spotlight slide-in-right" style="animation-delay: 0.2s;">
+	 <div class="service-card p-8 rounded-2xl spotlight slide-in-right" style="animation-delay: 0.2s;">
        <div class="service-icon text-6xl mb-6 icon-pulse" style="animation-delay: 1s;">
         🌍
        </div>
-       <h3 class="text-2xl font-bold mb-4">International Shipping</h3>
+       <h3 class="text-2xl font-bold mb-4">Customs Clearance & International Shipping</h3>
        <p class="leading-relaxed mb-4">Reliable cross-border shipping services with customs clearance support.</p>
-       <div class="flex items-center gap-2 mt-6">
+       <div class="flex items-center gap-2 mt-12">
         <div class="w-12 h-1 rounded-full" style="background: linear-gradient(90deg, currentColor, transparent);"></div><span class="text-xs font-semibold uppercase tracking-wider opacity-70">Global</span>
        </div>
        <button onclick="openModal('l3')" class="hover:text-blue-700"><div class="mt-4 inline-block px-5 py-2 rounded-full text-sm font-semibold learn-more-badge">
+        Learn More →
+       </div></button>
+      </div>
+      <div class="service-card p-8 rounded-2xl spotlight slide-in-left">
+       <div class="service-icon text-6xl mb-6 icon-pulse">
+        📦
+       </div>
+       <h3 class="text-2xl font-bold mb-4">Freight Forwarding & Warehousing</h3>
+       <p class="leading-relaxed mb-4">Comprehensive air, sea, land freight, and warehousing solutions for businesses worldwide.</p>
+       <div class="flex items-center gap-2 mt-6">
+        <div class="w-12 h-1 rounded-full" style="background: linear-gradient(90deg, currentColor, transparent);"></div><span class="text-xs font-semibold uppercase tracking-wider opacity-70">Reliable</span>
+       </div>
+        <button onclick="openModal('l1')" class="hover:text-blue-700"><div class="mt-4 inline-block px-5 py-2 rounded-full text-sm font-semibold learn-more-badge">
         Learn More →
        </div></button>
       </div>
@@ -247,7 +328,7 @@
        </div>
        <h3 class="text-2xl font-bold mb-5 tracking-tight">Mission</h3>
        <p id="mission-text" class="leading-relaxed text-base opacity-90">
-        The team at BIG Logistics aims at providing the valued clientele with the most economic, diversified, well-spread and door-to-door services in the field of exhibition handling, fair and events by implementing Economies of Scale (EOS), Just-in-Time (JIT) and Lean management methods.
+         Our team at BIG Logistics aims at providing the valued clientele with the most economic, diversified, all inclusive and door-2-door/turnkey services in the field of exhibition handling, fair and events by implementing Economies of Scale (EOS), Just-in-Time (JIT) and Lean management methods.
                 <button onclick="openModal('missionModal')" class="bg-green-50 hover:bg-green-500 text-blue-700 font-semibold  py-1 px-2 rounded-lg transition duration-300">
                   Read more..
                 </button> </p>
@@ -265,8 +346,8 @@
        </div>
        <h3 class="text-2xl font-bold mb-5 tracking-tight">Vision</h3>
        <p id="vision-text" class="leading-relaxed text-base opacity-90">
-                The vision of BIG Logistics, as in the words of their CEO Mr. Uttam Gupta, is –
-                “Connecting all corners of the world through a diversified network of our services”  
+                 The vision of BIG Logistics, as in the words of our President Mr. Uttam Gupta, is –
+                “Connecting all corners of the world through a diversified network of our services”    
             <button onclick="openModal('visionModal')" class="bg-green-50 hover:bg-green-500 text-blue-700 font-semibold  py-1 px-2 rounded-lg transition duration-300">
                    Read more..
             </button></p>
@@ -284,9 +365,9 @@
        </div>
        <h3 class="text-2xl font-bold mb-5 tracking-tight">Values</h3>
        <p id="values-text" class="leading-relaxed text-base opacity-90">
-                • Transparency both towards our clients as well as employees</br>
+                • Transparency both towards our customers as well as partners </br>
                 • Striving for excellence for the betterment of our cleients and our growth</br>
-                • Initiating and performing all actions keeping the well being of our clients in mind</br>
+                • Initiating and performing all actions keeping the well being of our customers in mind</br>
             <button onclick="openModal('valuesModal')" class="bg-green-50 hover:bg-green-500 text-blue-700 font-semibold  py-1 px-2 rounded-lg transition duration-300">
                      Read more..
             </button> </p>
@@ -318,7 +399,7 @@
         <div class="quote-mark text-7xl font-serif mb-4" style="opacity: 0.15; line-height: 0;">
          "
         </div>
-        <p id="president-message" class="text-xl leading-relaxed mb-8 italic font-light" style="text-indent: -0.5em; padding-left: 0.5em;"> We, at BIG Logistics, are committed towards making the world a less vulnerable place for our clients, to exceed their expectations, meet deadlines and increase Economies of Scale thereby increasing profitability for all members of supply chain.<button onclick="openModal('more2')" class="hover:text-blue-700  py-1 px-2 rounded-lg transition duration-300">more...</button>
+        <p id="president-message" class="text-xl leading-relaxed mb-8 italic font-light" style="text-indent: -0.5em; padding-left: 0.5em;"> We, at BIG Logistics, are committed towards making the world a less vulnerable place for our customers, to exceed their expectations, meet deadlines and increase Economies of Scale thereby increasing profitability for all members of supply chain.<button onclick="openModal('more2')" class="hover:text-blue-700  py-1 px-2 rounded-lg transition duration-300">more...</button>
         </p>
         <div class="flex items-center gap-4">
          <div class="h-1 w-16 rounded-full president-signature"></div>
@@ -337,9 +418,9 @@
      <p class="text-center mb-12 text-lg opacity-70"> BIG Logistics is an active member of the following governing bodies:</p>
      <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
       <div class="membership-card p-8 rounded-3xl text-center reveal bounce-in"><a href="http://www.ieia.in/">
-       <div class="inline-block mb-4 p-6 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
+       <div class="inline-block mb-4 p-3 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
         <div class="membership-icon text-5xl">
-         🏆
+         <img src="IEIA.png" width="70" height="80" alt="Logo">
         </div>
        </div>
        <h3 class="font-bold text-xl mb-3 tracking-tight">IEIA</h3></a>
@@ -347,9 +428,9 @@
        <p class="text-sm opacity-70 leading-relaxed">Indian Exhibition Industry Association</p>
       </div>
       <div class="membership-card p-8 rounded-3xl text-center reveal bounce-in" style="animation-delay: 0.1s;"><a href="https://afeca.asia/">
-       <div class="inline-block mb-4 p-6 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
+       <div class="inline-block mb-4 p-3 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
         <div class="membership-icon text-5xl">
-         🌐
+         <img src="AFECA.png" width="70" height="80" alt="Logo">
         </div>
        </div>
        <h3 class="font-bold text-xl mb-3 tracking-tight">AFECA</h3></a>
@@ -357,7 +438,7 @@
        <p class="text-sm opacity-70 leading-relaxed">Asian Federation of Exhibition and Convention Associations</p>
       </div>
       <div class="membership-card p-8 rounded-3xl text-center reveal bounce-in" style="animation-delay: 0.2s;"><a href="https://dcbadelhi.in/">
-       <div class="inline-block mb-4 p-3 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
+       <div class="inline-block mb-4 p-2 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
         <div class="membership-icon text-10xl">
          <img src="dcba-removebg-preview.png" width="70" height="80" alt="Logo">
         </div>
@@ -367,9 +448,9 @@
        <p class="text-sm opacity-70 leading-relaxed">Delhi customs Brokers Association</p></a>
       </div>
       <div class="membership-card p-8 rounded-3xl text-center reveal bounce-in" style="animation-delay: 0.3s;"><a href="https://www.iela.org/members/find-an-iela-member/companies/big-logistics-india-pvt-ltd.html">
-       <div class="inline-block mb-4 p-6 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
+       <div class="inline-block mb-4 p-3 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
         <div class="membership-icon text-5xl">
-         📋
+         <img src="IELA.png" width="60" height="70" alt="Logo">
         </div>
        </div>
        <h3 class="font-bold text-xl mb-3 tracking-tight">IELA</h3>
@@ -377,7 +458,7 @@
        <p class="text-sm opacity-70 leading-relaxed">International Exhibition Logistics Association</p></a>
       </div>
       <div class="membership-card p-8 rounded-3xl text-center reveal bounce-in" style="animation-delay: 0.3s;"><a href="https://eemaindia.com/">
-       <div class="inline-block mb-4 p-9 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
+       <div class="inline-block mb-4 p-5 rounded-2xl" style="background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
         <div class="membership-icon text-5xl">
         <img src="eema-logo.png" width="70" height="80" alt="Logo"> 
         </div>
@@ -388,6 +469,9 @@
       </div>
      </div>
     </div>
+		<p class="text-sm italic leading-relaxed mb-4 text-decoration max-w-6xl mx-auto mt-4">**Not only we are an active member, we also strive to brivethe change by continuously engaging with key decision making bodies, be it the Governing comittee, Govt association or the membership at large.</br>
+        BIG Logistics representations hold decision making position at same of these associations Showcasing our commitment of improving the ecosystem by giving back to the associations.</p>
+
         <!--conatable box-->
              <div class="floating-shapes">
    <div class="shape"></div>
@@ -421,7 +505,7 @@
       0
      </div>
      <div class="stat-label">
-      Happy Clients
+      Happy customers
      </div>
      <div class="stat-description">
       Trusted by thousands of satisfied customers worldwide
@@ -494,7 +578,7 @@
                 </div>
                 <div class="space-y-4 text-white" style="">
                   <p>The services include - Freight forwarding, Customs Clearance, On-site and off-site warehousing, Transportation, on-site handling of all kinds of cargo, unpacking and re-packing. We have a core group of 37 members who head various departments, and cover regions throughout the world. We take pride in the fact that all the core group members, having an experience of more than 20 years, have been together even long before since the inception of our brand, and are still growing strong together, carrying forward our values and mission.</p> 
-                  <p>It remains important for our organization that the success of our business goes hand-in-hand with the development of our colleagues, and the growth of our valued partner agents/clients throughout the world. Our USP is that we fulfill our financial, quality of services and time bound commitments that we make to our partners under any circumstances, and at any cost. This has been our success formula which has helped us to establish our brand with all the major organizers and partner agents throughout the world.</p>
+                  <p>It remains important for our organization that the success of our business goes hand-in-hand with the development of our colleagues, and the growth of our valued partner agents/customers throughout the world. Our USP is that we fulfill our financial, quality of services and time bound commitments that we make to our partners under any circumstances, and at any cost. This has been our success formula which has helped us to establish our brand with all the major organizers and partner agents throughout the world.</p>
                   <p>Having company owned offices in all metro cities; along with Government of India approved Customs Broker license gives us the additional stability and strength that we need to handle exhibitions of all volumes and nature across all major and minor venues in India. You can leave your worries far behind once your cargo is in our hands, for we very well understand the needs and demands of exhibitors throughout the world!</p>
                 </div>
             </div>
@@ -515,9 +599,9 @@
                         <li><strong>Vulnerability:</strong> One cannot reduce vulnerability, a smart company is the one which can make plans to make themselves less vulnerable to external and unpredictable factors.</li>
                         <li><strong>Ulteriority:</strong>  To survive in this ultra-competitive environment we need to see the bigger picture. Everything is a subset of some master set, and hence the master set should shape our actions.</li>
                         <li><strong>Contradictory:</strong> Every innovative idea invites contradictions. We need to have the reasoning and the planning to tackle the contradiction.</li>
-                        <li><strong>Abnegation:</strong> Self-denial is the biggest liability. As it is said, to win over one-self is the biggest victory, we need to convince ourselves of our vision and mission before our team and clients.</li>
+                        <li><strong>Abnegation:</strong> Self-denial is the biggest liability. As it is said, to win over one-self is the biggest victory, we need to convince ourselves of our vision and mission before our team and customers.</li>
                     </ul>
-                    <p>We, at BIG Logistics, are committed towards making the world a less vulnerable place for our clients and to keep them safe from these VUCA times, to exceed their expectations, meet deadlines and increase Economies of Scale thereby increasing profitability for all members of supply chain.</p>
+                    <p>We, at BIG Logistics, are committed towards making the world a less vulnerable place for our customers and to keep them safe from these VUCA times, to exceed their expectations, meet deadlines and increase Economies of Scale thereby increasing profitability for all members of supply chain.</p>
                     <p class="font-bold">- Uttam Gupta (President)</p>
                 </div>  
             </div>
@@ -589,7 +673,7 @@
                     <p>Our mission extends beyond simple transportation. We are committed to:</p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
                         <li><strong>Innovation:</strong> Continuously developing cutting-edge logistics technologies and processes</li>
-                        <li><strong>Reliability:</strong> Ensuring consistent, dependable service that our clients can count on</li>
+                        <li><strong>Reliability:</strong> Ensuring consistent, dependable service that our customers can count on</li>
                         <li><strong>Cost-effectiveness:</strong> Optimizing routes and processes to provide competitive pricing</li>
                         <li><strong>Sustainability:</strong> Implementing eco-friendly practices to reduce environmental impact</li>
                         <li><strong>Global Reach:</strong> Expanding our network to serve emerging markets and trade routes</li>
@@ -634,10 +718,10 @@
                 <div class="space-y-4 text-gray-700">
                     <p>The Values of Big Logistics are:</p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>Transparency</strong> - Transparency both towards our clients as well as employees</li>
+                        <li><strong>Transparency</strong> - Transparency both towards our customers as well as partners</li>
                         <li><strong>Teamwork</strong> - Carrying everyone together following the down-up approach.</li>
                         <li><strong>Excellence</strong> - Striving for excellence for the betterment of our cleients and our growth.</li>
-                        <li><strong>Client Focus</strong> - Initiating and performing all actions keeping the well being of our clients in mind.</li>
+                        <li><strong>Client Focus</strong> - Initiating and performing all actions keeping the well being of our customers in mind.</li>
                         <li><strong>Employee Orientation</strong> - Taking care of the most important stakeholder – the employee.</li>
                         <li><strong> Diversification</strong> - Exploring all options for a complete solution.</li>
                     </ul>
@@ -830,7 +914,7 @@
                        <li>Use of forklifts, pallet jacks, and suitable equipment for careful movement of cargo inside the warehouse.</li>
                        <li>Systematic documentation and tracking to minimize errors and delays in your supply chain.</li>
                     </ul>
-				    <p style="color: #ffea71;"><b><u>Benefits for Our Clients</u></b></p>
+				    <p style="color: #ffea71;"><b><u>Benefits for Our customers</u></b></p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
                        <li>Reduced handling time and faster dispatch to exhibitions, sites, and final destinations.</li>
                        <li>Flexible storage options that can be scaled as per show schedules, project timelines, or seasonal demand.</li>
@@ -968,7 +1052,7 @@
                     <p style="color: #ffea71;"><b><u>Why Our Customs Team Makes a Difference?</u></b></p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
                        <li>A knowledgeable team familiar with changing rules, notifications, and compliance requirements.</li>
-                       <li>Clear guidance to clients on what is required before cargo arrives, avoiding last-minute surprises.</li>
+                       <li>Clear guidance to customers on what is required before cargo arrives, avoiding last-minute surprises.</li>
                        <li>Focus on transparency—explaining duty structures, charges, and timelines in simple terms.</li>
                     </ul>
                     <p><i>With us, customs clearance becomes a controlled, predictable step in your logistics chain, not a barrier for your business.</i></p>
@@ -1236,10 +1320,21 @@
                 });
             }
         });
+		 const ratingInput = document.getElementById('rating');
+const stars = document.querySelectorAll('.star');
+
+        function setRating(value){
+ratingInput.value = value;
+stars.forEach((s,i)=>{
+s.classList.toggle('filled', i < value);
+s.classList.toggle('empty', i >= value);
+});
+}
     </script>
 	 <script src="java1.1.js"></script>
 </body>
 </html>
+
 
 
 
