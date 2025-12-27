@@ -129,7 +129,7 @@
         }
         
         .page-header {
-            background: linear-gradient(135deg, rgba(92, 42, 9, 0.89), rgba(255, 211, 15, 0.822)),
+            background: linear-gradient(135deg, rgba(56, 26, 5, 0.466), rgba(255, 197, 36, 0.61)), url('Hero.png'),
                         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><path fill="%23764ba2" d="M0 300L50 283.3C100 266.7 200 233.3 300 216.7C400 200 500 200 600 216.7C700 233.3 800 266.7 900 283.3C1000 300 1100 300 1150 300L1200 300L1200 601L1150 601C1100 601 1000 601 900 601C800 601 700 601 600 601C500 601 400 601 300 601C200 601 100 601 50 601L0 601Z"/></svg>');
             background-size: cover;
             background-position: center;
@@ -247,4 +247,5 @@
         .mobile-nav-link:hover {
             background: linear-gradient(135deg,#886627e1 0%,#f5e188d5  100%);
             color: white;
+
         }
