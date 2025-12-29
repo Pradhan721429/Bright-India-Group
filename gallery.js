@@ -26,7 +26,7 @@
                 category: 'team',
                 title: 'Our Dedicated Team',
                 description: 'Experienced professionals committed to excellence in logistics',
-                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23f3e5f5" width="800" height="600"/%3E%3Ccircle fill="%239c27b0" cx="250" cy="250" r="60"/%3E%3Cpath fill="%239c27b0" d="M250 330c-50 0-90 40-90 90v50h180v-50c0-50-40-90-90-90z"/%3E%3Ccircle fill="%237b1fa2" cx="400" cy="250" r="60"/%3E%3Cpath fill="%237b1fa2" d="M400 330c-50 0-90 40-90 90v50h180v-50c0-50-40-90-90-90z"/%3E%3Ccircle fill="%234a148c" cx="550" cy="250" r="60"/%3E%3Cpath fill="%234a148c" d="M550 330c-50 0-90 40-90 90v50h180v-50c0-50-40-90-90-90z"/%3E%3Ctext x="400" y="550" text-anchor="middle" font-size="24" fill="%23333"%3ETeam Excellence%3C/text%3E%3C/svg%3E'
+                image: 'Team5.jpeg'
             },
             {
                 id: 5,
@@ -40,12 +40,12 @@
                 category: 'warehouse',
                 title: 'Automated Storage Systems',
                 description: 'High-density automated storage and retrieval systems for efficiency',
-                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23fce4ec" width="800" height="600"/%3E%3Crect fill="%23c2185b" x="100" y="150" width="600" height="350"/%3E%3Crect fill="%23880e4f" x="100" y="150" width="200" height="350"/%3E%3Crect fill="%23fff" x="120" y="200" width="40" height="60"/%3E%3Crect fill="%23fff" x="180" y="200" width="40" height="60"/%3E%3Crect fill="%23fff" x="120" y="280" width="40" height="60"/%3E%3Crect fill="%23fff" x="180" y="280" width="40" height="60"/%3E%3Crect fill="%23fff" x="120" y="360" width="40" height="60"/%3E%3Crect fill="%23fff" x="180" y="360" width="40" height="60"/%3E%3Ctext x="400" y="550" text-anchor="middle" font-size="24" fill="%23333"%3EAutomated Storage%3C/text%3E%3C/svg%3E'
+                image: ''
             },
             {
                 id: 7,
                 category: 'Exhibition',
-                title: 'Refrigerated Transport',
+                title: '',
                 description: 'Temperature-controlled vehicles for perishable goods transportation',
                 image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23e0f2f1" width="800" height="600"/%3E%3Cpath fill="%2300897b" d="M100 280h450v180H100z"/%3E%3Cpath fill="%23004d40" d="M550 300h100v160H550z"/%3E%3Ccircle fill="%23424242" cx="200" cy="490" r="40"/%3E%3Ccircle fill="%23424242" cx="600" cy="490" r="40"/%3E%3Cpath fill="%2300bcd4" d="M150 300h350v140H150z"/%3E%3Ctext x="325" y="380" text-anchor="middle" font-size="40" fill="%23fff"%3E❄️%3C/text%3E%3Ctext x="400" y="560" text-anchor="middle" font-size="24" fill="%23333"%3ECold Chain Transport%3C/text%3E%3C/svg%3E'
             },
@@ -82,7 +82,7 @@
                 category: 'operations',
                 title: 'Machine shifting',
                 description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: 'F1.jpeg'
+                image: 'onsite25.jpg'
             },
             {
                 id: 13,
@@ -94,65 +94,65 @@
             {
                 id: 14,
                 category: 'operations',
-                title: 'Air Cargo Operations',
-                description: 'Express air freight services for time-sensitive shipments',
-                image: 'onsite_gte.gif'
+                title: 'Unloading Cargo',
+                description: 'Unloading large wooden box by using of crane from truck at CPHI/PMEC Noida',
+                image: 'onsite8.jpeg'
             },
             {
                 id: 15,
                 category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: 'F1.jpeg'
+                title: 'Container Loading',
+                description: 'Loding 40ft. container on truck at CPHI/PMEC Noida',
+                image: 'onsite17.jpeg'
             },
             {
                 id: 16,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: 'F1.jpeg'
+                category: 'team',
+                title: 'Our dedicated team',
+                description: 'Experienced professionals committed to excellence in logistics',
+                image: 'Team3.jpeg'
             },
             {
                 id: 17,
                 category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: 'F1.jpeg'
+                title: 'Machine unloading',
+                description: 'Unloading machine from truck under circumspection of supervisor ',
+                image: 'onsite1.jpeg'
             },
             {
                 id: 18,
                 category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: 'F1.jpeg'
+                title: 'Freight Handling',
+                description: 'Handling heavy cargo using of crane',
+                image: 'onsite6.jpeg'
             },
             {
                 id: 19,
                 category: 'operations',
                 title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                description: 'Shifting machine from truck to exhibition stand',
+                image: 'onsite9.jpeg'
             },
             {
                 id: 20,
                 category: 'operations',
                 title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                description: 'Shifting machine from truck to exhibition stand at PMEC Noida',
+                image: 'onsite12.jpeg'
             },
             {
                 id: 21,
                 category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                title: 'Unpacking',
+                description: 'Unpacking large wooden box at exhibition site',
+                image: 'onsite11.jpeg'
             },
             {
                 id: 22,
                 category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                title: 'freight shifting',
+                description: 'Shifting freight from truck to exhibition stand',
+                image: 'onsite15.jpeg'
             },
             {
                 id: 23,
@@ -165,15 +165,15 @@
                 id: 24,
                 category: 'operations',
                 title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                description: 'Shifting large machine to exhibition stand at PMEC Noida',
+                image: 'onsite21.jpeg'
             },
             {
                 id: 25,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                category: 'team',
+                title: 'Team at exhibition',
+                description: 'our on-site handling team at exhibition venue',
+                image: 'Team2.jpeg'
             },
             {
                 id: 26,
@@ -532,4 +532,5 @@
             });
 
         });
+
 
