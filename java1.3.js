@@ -1,5 +1,5 @@
  // CONFIGURATION - Change this when you add more images
-        const TOTAL_IMAGES = 15; // Update this number when adding more images
+        const TOTAL_IMAGES = 30; // Update this number when adding more images
         
         // Dynamic scroll animation based on image count and screen size
         function updateScrollAnimation() {
@@ -83,3 +83,4 @@
             // Note: You'll need to manually update TOTAL_IMAGES variable above
             console.log('New image added! Remember to update TOTAL_IMAGES constant.');
         }
+
