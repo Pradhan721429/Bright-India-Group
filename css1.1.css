@@ -55,4 +55,63 @@
         }
         .dropdown-menu {
             transition: opacity 1s ease;
+
         }
+.fixed-call-btn {
+    position: fixed;
+    bottom: 300px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #41ff07c2, #43faaead);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(62, 70, 63, 0.733);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+
+.fixed-call-btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 12px 35px rgb(49, 53, 48);
+}
+.tooltip {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #383434b9, #313635ab);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(55, 58, 55, 0.623);
+    z-index: 1001;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #2a302c88;
+}
+
+.fixed-call-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 50px;
+}
