@@ -96,6 +96,9 @@
 	    </style>
 	 <link href="css1.1.css" rel="stylesheet">
      <link href="css1.2.css" rel="stylesheet">
+	 <link href="scrollcss.css" rel="stylesheet">
+	 <link href="cardbg.css" rel="stylesheet">
+	 <link href="about.css" rel="stylesheet">
 </head>
 <body class="font-sans">
     <!-- Header -->
@@ -151,7 +154,12 @@
             </div>
         </div>
     </section>
-
+<button class="fixed-call-btn" onclick="makeCall()">
+   <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+   </svg>
+    <span class="tooltip">call now</span>
+</button>
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center" style="
     background-image: url('Hero.png');
@@ -192,7 +200,6 @@
 
 
        <!-- About Us Section -->
-		 <link href="about.css" rel="stylesheet">
     <section id="about" class=" rounded-xl shadow-lg p-8 mb-0 parallax-section" style="background: linear-gradient(to bottom right, #ffffff 0%, #f8f6f3f5 100%);">
     <div class="max-w-6xl mx-auto">
      <h2 class="text-4xl font-bold mb-4 text-center decorative-line">About Our Company</h2>
@@ -206,8 +213,8 @@ Along with the introduction of these documents in the Indian exhibitions & event
 In 2012 these learnings and ideas were given a physical shape with the introduction of BIG Logistics India. The journey started with 2 offices, and a team base of 12 highly experienced, enthusiastic and passionate colleagues. The mission was to provide seamless support to our customers - both domestic and international. Our team realised that the mission could only be achieved once BIG Logistics owned and controlled the majority of the supply chain. This translated into the vision of having our offices within an arm's distance from leading show venues, intermediate and long term warehousing solutions, registration with Indian Government and Customs authorities and developing a set of teams that can trust each other during their worst moments, 
  <a href="#more1" onclick="openModal('more1')" class="hover:text-blue-700 py-1 px-2 rounded-lg transition duration-300">more...</a></p>
         <!-- Services Grid with Enhanced Cards -->
-		 <h2 class="text-2xl font-bold mb-1 text-center">Our Core Operational Areas</h2>
-     <div class="grid md:grid-cols-3 gap-8 mt-12" >
+		 <h2 class="text-2xl font-bold mb-1 mt-5 text-center">Our Core Operational Areas</h2>
+     <div class="grid md:grid-cols-3 gap-8 mt-6" >
 		<div class="service-card p-8 rounded-2xl spotlight fade-in-up" style="animation-delay: 0.2s;">
        <div class="service-icon text-6xl mb-6 icon-pulse" style="animation-delay: 0.5s;">
         🏗️
@@ -1109,7 +1116,7 @@ Today, we are empaneled with all major Indian and International show organisers 
 <!-- Modal -->
 <div id="form" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
         <div class="rounded-xl max-w-5xl w-full max-h-96 overflow-y-auto fade-in" style="background: linear-gradient(to bottom right, #fffffff6 40%, #9b9b9af5 100%);">
-<button onclick="closeModal(form)" class="absolute top-4 right-4 text-white-400 hover:text-red-600">✕</button>
+<div style="text-align: right;"><button onclick="closeModal('form')" class="text-white hover:text-red-600 text-2xl font-bold text-align right">×</button></div>
 
 <!-- SUCCESS -->
 <div id="successBox" class="hidden text-center">
@@ -1130,15 +1137,15 @@ Today, we are empaneled with all major Indian and International show organisers 
 <input type="hidden" name="rating" id="rating">
 <div class="flex justify-between items-center mb-6">
 <h2 class="text-2xl font-bold">Customer Satisfaction Survey</h2>
-<button onclick="closeModal('form')" class="text-white hover:text-red-600 text-2xl font-bold">×</button>
+
 </div>
 <p class="text-gray-600">We value your feedback</p>
 
 <div class="grid md:grid-cols-2 gap-4">
 <input required name="name" placeholder="Enter your full Name" class="border p-3 rounded-lg">
 <input required name="company" placeholder="Company Name" class="border p-3 rounded-lg">
-<input required name="contact" placeholder="Contact Number(+91 0000000000)" class="border p-3 rounded-lg">
-<input required type="email" name="email" placeholder="drop your email Address" class="border p-3 rounded-lg">
+<input required name="contact" placeholder="Contact Number with country code" class="border p-3 rounded-lg">
+<input required type="email" name="email" placeholder="Drop Your Email Address" class="border p-3 rounded-lg">
 </div>
 
 <select required name="country" class="border p-3 rounded-lg w-full">
@@ -1170,8 +1177,6 @@ Submit Feedback
 </div>
     <!--Presence-->
     <section class="ourclients gallery-container" id="presence">
-		 <link href="scrollcss.css" rel="stylesheet">
-		 <link href="cardbg.css" rel="stylesheet">
         <div class="container1" style="padding-bottom: 35px;">
         <div class="elegant-serif font-bold animated-text text-white px-4">OUR PRESENCE </div>
         </div>
@@ -1387,10 +1392,14 @@ s.classList.toggle('filled', i < value);
 s.classList.toggle('empty', i >= value);
 });
 }
+function makeCall() {
+    window.location.href = "tel:+918800198041";
+}		
     </script>
 	 <script src="java1.1.js"></script>
 </body>
 </html>
+
 
 
 
