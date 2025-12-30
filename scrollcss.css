@@ -7,6 +7,15 @@
             display: flex;
             height: 100%;
         }
+         .scroll-container:hover .scroll-track,
+.image-item:hover ~ .scroll-track {
+    animation-play-state: paused;
+}
+
+/* Also pause when hovering directly on the track */
+.scroll-track:hover {
+    animation-play-state: paused;
+}
 
         .image-item {
             flex-shrink: 0;
@@ -24,7 +33,7 @@
         
 
         .scroll-track {
-            animation: scrollDesktop 30s linear infinite;
+            animation: scrollDesktop 50s linear infinite;
             width: calc((250px + 20px) * 60); /* Width for all 30 images (15 original + 15 duplicates) */
         }
 
@@ -64,6 +73,7 @@
                 margin-right: 20px;
             }
         }
+
 
 
 
