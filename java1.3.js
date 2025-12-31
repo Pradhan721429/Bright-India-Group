@@ -20,7 +20,7 @@
                     100% { transform: translateX(-50%); }
                 }
                 .scroll-track {
-                    animation: scrollDesktop 25s linear infinite;
+                    animation: scrollDesktop 50s linear infinite;
                 }
             `;
             
@@ -34,7 +34,7 @@
                 @media (max-width: 768px) {
                     .scroll-track {
                         width: ${mobileWidth * TOTAL_IMAGES * 2}px;
-                        animation: scrollMobile 20s linear infinite;
+                        animation: scrollMobile 35s linear infinite;
                     }
                     @keyframes scrollMobile {
                         0% { transform: translateX(0); }
@@ -45,7 +45,7 @@
                 @media (max-width: 480px) {
                     .scroll-track {
                         width: ${smallMobileWidth * TOTAL_IMAGES * 2}px;
-                        animation: scrollSmallMobile 18s linear infinite;
+                        animation: scrollSmallMobile 25s linear infinite;
                     }
                     @keyframes scrollSmallMobile {
                         0% { transform: translateX(0); }
@@ -83,4 +83,5 @@
             // Note: You'll need to manually update TOTAL_IMAGES variable above
             console.log('New image added! Remember to update TOTAL_IMAGES constant.');
         }
+
 
