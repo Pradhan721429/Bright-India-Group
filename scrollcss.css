@@ -1,5 +1,5 @@
         .scroll-container {
-            overflow: hidden;
+           
             background: linear-gradient(90deg, transparent, rgba(228, 132, 7, 0.041), transparent);
         }
 
@@ -73,6 +73,9 @@
                 margin-right: 20px;
             }
         }
+        .photoUP:hover {
+      transform: translateY(-15px);
+    }
 
 
 
