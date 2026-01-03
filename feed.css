@@ -29,7 +29,17 @@
       padding: 0 60px;
     }
 
-   
+   .carousel-wrapper {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Desktop only */
+@media (hover: hover) and (pointer: fine) {
+  .carousel-wrapper {
+    overflow: visible;
+  }
+}
 
     .carousel-track {
       display: flex;
@@ -242,4 +252,5 @@
         width: 20px;
         height: 20px;
       }
+
     }
