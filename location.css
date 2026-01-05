@@ -22,18 +22,18 @@ body {
     .top-nav {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
-      padding: 16px 0;
+      padding: 2px 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 2px solid #f59e0b;
+      border-bottom: 1px solid #f59e0b;
     }
 
     .nav-container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 5px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -394,3 +394,4 @@ body {
         gap: 12px;
       }
     }
+
