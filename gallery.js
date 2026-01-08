@@ -10,9 +10,9 @@
             {
                 id: 2,
                 category: 'Exhibition',
-                title: 'Heavy Duty Transport Trucks',
-                description: 'Our fleet of modern trucks ensuring timely delivery across the country',
-                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23fff3e0" width="800" height="600"/%3E%3Cpath fill="%23ff6f00" d="M100 300h400v150H100z"/%3E%3Cpath fill="%23e65100" d="M500 320h150v130H500z"/%3E%3Ccircle fill="%23424242" cx="200" cy="480" r="40"/%3E%3Ccircle fill="%23424242" cx="580" cy="480" r="40"/%3E%3Cpath fill="%23d32f2f" d="M520 340h100v60H520z"/%3E%3Ctext x="400" y="550" text-anchor="middle" font-size="24" fill="%23333"%3EBIG Logistics Fleet%3C/text%3E%3C/svg%3E'
+                title: 'World Defence Show',
+                description: 'Our freight forwarding experts seamlessly delivering exhibition materials at the international trade show.',
+                image: 'E5.jpeg'
             },
             {
                 id: 3,
@@ -40,14 +40,14 @@
                 category: 'warehouse',
                 title: 'Automated Storage Systems',
                 description: 'High-density automated storage and retrieval systems for efficiency',
-                image: ''
+                image: 'w4.jpeg'
             },
             {
                 id: 7,
                 category: 'Exhibition',
-                title: '',
-                description: 'Temperature-controlled vehicles for perishable goods transportation',
-                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23e0f2f1" width="800" height="600"/%3E%3Cpath fill="%2300897b" d="M100 280h450v180H100z"/%3E%3Cpath fill="%23004d40" d="M550 300h100v160H550z"/%3E%3Ccircle fill="%23424242" cx="200" cy="490" r="40"/%3E%3Ccircle fill="%23424242" cx="600" cy="490" r="40"/%3E%3Cpath fill="%2300bcd4" d="M150 300h350v140H150z"/%3E%3Ctext x="325" y="380" text-anchor="middle" font-size="40" fill="%23fff"%3E❄️%3C/text%3E%3Ctext x="400" y="560" text-anchor="middle" font-size="24" fill="%23333"%3ECold Chain Transport%3C/text%3E%3C/svg%3E'
+                title: 'Dubai Air show',
+                description: 'All dummy models are placed at exhibition stand under our supervision.',
+                image: 'E2.jpeg'
             },
             {
                 id: 8,
@@ -73,9 +73,9 @@
             {
                 id: 11,
                 category: 'warehouse',
-                title: 'Inventory Management Center',
-                description: 'Real-time inventory tracking with advanced barcode systems',
-                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23f1f8e9" width="800" height="600"/%3E%3Crect fill="%23689f38" x="150" y="150" width="500" height="350"/%3E%3Crect fill="%23fff" x="200" y="200" width="150" height="250"/%3E%3Crect fill="%23000" x="210" y="220" width="10" height="200"/%3E%3Crect fill="%23000" x="230" y="220" width="5" height="200"/%3E%3Crect fill="%23000" x="245" y="220" width="15" height="200"/%3E%3Crect fill="%23000" x="270" y="220" width="8" height="200"/%3E%3Crect fill="%23000" x="288" y="220" width="12" height="200"/%3E%3Ctext x="400" y="540" text-anchor="middle" font-size="24" fill="%23333"%3EInventory Control%3C/text%3E%3C/svg%3E'
+                title: 'Packing/Unpacking',
+                description: 'Cargo packing in our warehouse by our skilled labour using of crane',
+                image: 'w3.jpg'
             },
             {
                 id: 12,
@@ -156,10 +156,10 @@
             },
             {
                 id: 23,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
+                category: 'Exhibition',
+                title: 'Egypt Defence Expo',
+                description: 'All dummy models are placed at exhibition stand under our supervision.',
+                image: 'E4.jpeg'
             },
             {
                 id: 24,
@@ -210,154 +210,7 @@
                 description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
                 image: './img/F1.jpeg'
             },
-            {
-                id: 31,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 32,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 33,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 34,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 35,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 36,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 37,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 38,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 39,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 40,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 41,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 42,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 43,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 44,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 45,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 46,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 47,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 48,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 49,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 50,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-            {
-                id: 51,
-                category: 'operations',
-                title: 'Machine shifting',
-                description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
-                image: './img/F1.jpeg'
-            },
-
+            
         ];
 
         let currentFilter = 'all';
@@ -532,5 +385,6 @@
             });
 
         });
+
 
 
