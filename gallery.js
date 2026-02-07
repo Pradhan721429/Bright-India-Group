@@ -28,20 +28,8 @@
                 description: 'Experienced professionals committed to excellence in logistics',
                 image: 'Team5.jpeg'
             },
-            {
-                id: 5,
-                category: 'port',
-                title: 'Port Container Handling',
-                description: 'Seamless port operations for import and export cargo',
-                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23e1f5fe" width="800" height="600"/%3E%3Crect fill="%2301579b" y="400" width="800" height="200"/%3E%3Crect fill="%23d32f2f" x="100" y="280" width="120" height="120"/%3E%3Crect fill="%23388e3c" x="240" y="280" width="120" height="120"/%3E%3Crect fill="%23f57c00" x="380" y="280" width="120" height="120"/%3E%3Crect fill="%231976d2" x="520" y="280" width="120" height="120"/%3E%3Cpath fill="%23616161" d="M200 150h50v250h-50z"/%3E%3Cpath fill="%23757575" d="M100 150h250v30H100z"/%3E%3Ctext x="400" y="550" text-anchor="middle" font-size="24" fill="%23fff"%3EPort Operations%3C/text%3E%3C/svg%3E'
-            },
-            {
-                id: 6,
-                category: 'warehouse',
-                title: 'Automated Storage Systems',
-                description: 'High-density automated storage and retrieval systems for efficiency',
-                image: 'w4.jpeg'
-            },
+           
+            
             {
                 id: 7,
                 category: 'Exhibition',
@@ -56,20 +44,7 @@
                 description: 'Lifting heavy machine using 5T forklift at GTE Ahmedabad',
                 image: './Onsite_G.jpeg'
             },
-            {
-                id: 22,
-                category: 'team',
-                title: 'Training & Development',
-                description: 'Continuous training programs to maintain highest service standards',
-                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23e8eaf6" width="800" height="600"/%3E%3Crect fill="%233f51b5" x="150" y="200" width="500" height="300"/%3E%3Crect fill="%23fff" x="200" y="250" width="180" height="120"/%3E%3Crect fill="%23fff" x="420" y="250" width="180" height="120"/%3E%3Cpath fill="%23ff9800" d="M350 400l50 50 50-50z"/%3E%3Ccircle fill="%23ffc107" cx="290" cy="300" r="30"/%3E%3Ccircle fill="%23ffc107" cx="510" cy="300" r="30"/%3E%3Ctext x="400" y="540" text-anchor="middle" font-size="24" fill="%23333"%3ETraining Excellence%3C/text%3E%3C/svg%3E'
-            },
-            {
-                id: 10,
-                category: 'port',
-                title: 'Container Ship Operations',
-                description: 'International shipping operations connecting global markets',
-                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23bbdefb" width="800" height="600"/%3E%3Crect fill="%2301579b" y="350" width="800" height="250"/%3E%3Cpath fill="%23546e7a" d="M200 280l200 70v100H200z"/%3E%3Crect fill="%23d32f2f" x="220" y="220" width="60" height="60"/%3E%3Crect fill="%23388e3c" x="290" y="220" width="60" height="60"/%3E%3Crect fill="%23f57c00" x="220" y="290" width="60" height="60"/%3E%3Crect fill="%231976d2" x="290" y="290" width="60" height="60"/%3E%3Cpath fill="%23fff" d="M420 200l30 150h100l-30-150z"/%3E%3Ctext x="400" y="560" text-anchor="middle" font-size="24" fill="%23fff"%3EShipping Operations%3C/text%3E%3C/svg%3E'
-            },
+           
             
             {
                 id: 12,
@@ -169,6 +144,13 @@
                 description: 'our on-site handling team at exhibition venue',
                 image: 'Team2.jpeg'
             },
+                {
+                id: 6,
+                category: 'warehouse',
+                title: 'Automated Storage Systems',
+                description: 'High-density automated storage and retrieval systems for efficiency',
+                image: 'w4.jpeg'
+            },
             {
                 id: 26,
                 category: 'operations',
@@ -204,6 +186,28 @@
                 description: 'Shifting machine from truck to exhibition stand at GTE Ahmedabad',
                 image: './img/F1.jpeg'
             },
+                 {
+                id: 5,
+                category: 'port',
+                title: 'Port Container Handling',
+                description: 'Seamless port operations for import and export cargo',
+                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23e1f5fe" width="800" height="600"/%3E%3Crect fill="%2301579b" y="400" width="800" height="200"/%3E%3Crect fill="%23d32f2f" x="100" y="280" width="120" height="120"/%3E%3Crect fill="%23388e3c" x="240" y="280" width="120" height="120"/%3E%3Crect fill="%23f57c00" x="380" y="280" width="120" height="120"/%3E%3Crect fill="%231976d2" x="520" y="280" width="120" height="120"/%3E%3Cpath fill="%23616161" d="M200 150h50v250h-50z"/%3E%3Cpath fill="%23757575" d="M100 150h250v30H100z"/%3E%3Ctext x="400" y="550" text-anchor="middle" font-size="24" fill="%23fff"%3EPort Operations%3C/text%3E%3C/svg%3E'
+            },
+                 {
+                id: 22,
+                category: 'team',
+                title: 'Training & Development',
+                description: 'Continuous training programs to maintain highest service standards',
+                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23e8eaf6" width="800" height="600"/%3E%3Crect fill="%233f51b5" x="150" y="200" width="500" height="300"/%3E%3Crect fill="%23fff" x="200" y="250" width="180" height="120"/%3E%3Crect fill="%23fff" x="420" y="250" width="180" height="120"/%3E%3Cpath fill="%23ff9800" d="M350 400l50 50 50-50z"/%3E%3Ccircle fill="%23ffc107" cx="290" cy="300" r="30"/%3E%3Ccircle fill="%23ffc107" cx="510" cy="300" r="30"/%3E%3Ctext x="400" y="540" text-anchor="middle" font-size="24" fill="%23333"%3ETraining Excellence%3C/text%3E%3C/svg%3E'
+            },
+            {
+                id: 10,
+                category: 'port',
+                title: 'Container Ship Operations',
+                description: 'International shipping operations connecting global markets',
+                image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23bbdefb" width="800" height="600"/%3E%3Crect fill="%2301579b" y="350" width="800" height="250"/%3E%3Cpath fill="%23546e7a" d="M200 280l200 70v100H200z"/%3E%3Crect fill="%23d32f2f" x="220" y="220" width="60" height="60"/%3E%3Crect fill="%23388e3c" x="290" y="220" width="60" height="60"/%3E%3Crect fill="%23f57c00" x="220" y="290" width="60" height="60"/%3E%3Crect fill="%231976d2" x="290" y="290" width="60" height="60"/%3E%3Cpath fill="%23fff" d="M420 200l30 150h100l-30-150z"/%3E%3Ctext x="400" y="560" text-anchor="middle" font-size="24" fill="%23fff"%3EShipping Operations%3C/text%3E%3C/svg%3E'
+            },
+                
             
         ];
 
@@ -379,6 +383,7 @@
             });
 
         });
+
 
 
 
