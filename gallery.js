@@ -57,7 +57,7 @@
                 image: './Onsite_G.jpeg'
             },
             {
-                id: 9,
+                id: 22,
                 category: 'team',
                 title: 'Training & Development',
                 description: 'Continuous training programs to maintain highest service standards',
@@ -70,13 +70,7 @@
                 description: 'International shipping operations connecting global markets',
                 image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23bbdefb" width="800" height="600"/%3E%3Crect fill="%2301579b" y="350" width="800" height="250"/%3E%3Cpath fill="%23546e7a" d="M200 280l200 70v100H200z"/%3E%3Crect fill="%23d32f2f" x="220" y="220" width="60" height="60"/%3E%3Crect fill="%23388e3c" x="290" y="220" width="60" height="60"/%3E%3Crect fill="%23f57c00" x="220" y="290" width="60" height="60"/%3E%3Crect fill="%231976d2" x="290" y="290" width="60" height="60"/%3E%3Cpath fill="%23fff" d="M420 200l30 150h100l-30-150z"/%3E%3Ctext x="400" y="560" text-anchor="middle" font-size="24" fill="%23fff"%3EShipping Operations%3C/text%3E%3C/svg%3E'
             },
-            {
-                id: 11,
-                category: 'warehouse',
-                title: 'Packing/Unpacking',
-                description: 'Cargo packing in our warehouse by our skilled labour using of crane',
-                image: 'w3.jpg'
-            },
+            
             {
                 id: 12,
                 category: 'operations',
@@ -148,7 +142,7 @@
                 image: 'onsite11.jpeg'
             },
             {
-                id: 22,
+                id: 9,
                 category: 'operations',
                 title: 'freight shifting',
                 description: 'Shifting freight from truck to exhibition stand',
@@ -385,6 +379,7 @@
             });
 
         });
+
 
 
 
