@@ -3,7 +3,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #631805 0%, #b6580bdc 50%, #e9b116d5 100%);
+            
             min-height: 100%;
             overflow-x: hidden;
         }
@@ -248,3 +248,4 @@
             }
 
         }
+
