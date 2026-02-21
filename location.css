@@ -33,7 +33,7 @@ body {
     .nav-container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 5px;
+      padding: 0 1px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -394,6 +394,7 @@ body {
         gap: 12px;
       }
     }
+
 
 
 
