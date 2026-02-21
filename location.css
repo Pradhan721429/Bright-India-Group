@@ -42,7 +42,7 @@ body {
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 5px;
     }
 
     .logo-icon {
@@ -394,5 +394,6 @@ body {
         gap: 12px;
       }
     }
+
 
 
