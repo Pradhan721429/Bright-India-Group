@@ -10,7 +10,7 @@
 .hero-section {
   position: relative;
   min-height: 100vh;
-  background: url("img/Hero.png") center center / cover no-repeat;
+  background: url("Hero.png") center center / cover no-repeat;
 }
  .bg-video {
   position: absolute;
@@ -270,6 +270,7 @@
             }
 
         }
+
 
 
 
