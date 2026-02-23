@@ -7,6 +7,11 @@
             min-height: 100%;
             overflow-x: hidden;
         }
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: url("img/Hero.png") center center / cover no-repeat;
+}
  .bg-video {
   position: absolute;
   top: 0;
@@ -265,5 +270,6 @@
             }
 
         }
+
 
 
