@@ -168,21 +168,11 @@
    <img src="social.png" width="48"height="48">    
 </a>
     <!-- Hero Section -->
-    <section id="home" class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background video with orientation-responsive source -->
- <video 
-    id="heroVideo"
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    webkit-playsinline
-    preload="auto"
-    poster="img/Hero.png"
-    class="bg-video">
-    <source src="hero-5.mp4" type="video/mp4" media="(orientation: landscape) or (min-width: 768px)">
-    <source src="Hero_Mo.mp4" type="video/mp4" media="(orientation: portrait) and (max-width: 767px)">
-  </video>
+    <section id="home" class="video-container">
+    <!-- Poster is a fallback image for Low Power Mode or slow connections -->
+    <video id="bg-video" autoplay muted loop playsinline poster="Hero.png">
+        <!-- Sources will be injected here by JavaScript -->
+    </video>
         <!-- Animated Background -->
         <div class="hero-background"></div>
         
@@ -1431,24 +1421,36 @@ function makeCall() {
 	<script src='https://cdn.jotfor.ms/agent/embedjs/019bc62d4b2d730e94ff9ae3eb87e5bc00d9/embed.js'>
 </script>
 	<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const video = document.getElementById("heroVideo");
+function initResponsiveVideo() {
+    const video = document.getElementById('bg-video');
+    const isMobile = window.innerWidth <= 768;
+    
+    // Define your file paths
+    const videoUrl = isMobile ? 'hero-5.mp4' : 'Hero_Mo.mp4';
 
-  video.addEventListener("error", function() {
-    video.style.display = "none";
-  });
+    // 1. Set the source
+    video.src = videoUrl;
 
-  video.addEventListener("stalled", function() {
-    video.style.display = "none";
-  });
+    // 2. Load the video
+    video.load();
 
-  video.play().catch(() => {
-    video.style.display = "none";
-  });
-});
+    // 3. Safari/iOS Fix: Explicitly call .play() to bypass strict autoplay blocks
+    const playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.catch(error => {
+            // Video couldn't autoplay (usually due to Low Power Mode)
+            console.log("Autoplay blocked. Showing poster image instead.");
+        });
+    }
+}
+
+// Run when the DOM is ready
+document.addEventListener('DOMContentLoaded', initResponsiveVideo);
 </script>
 </body>
 </html>
+
 
 
 
