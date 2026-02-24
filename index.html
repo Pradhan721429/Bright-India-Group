@@ -1404,35 +1404,55 @@ function makeCall() {
 	<script src='https://cdn.jotfor.ms/agent/embedjs/019bc62d4b2d730e94ff9ae3eb87e5bc00d9/embed.js'>
 </script>
 	<script>
-function initResponsiveVideo() {
+function forcePlayVideo() {
     const video = document.getElementById('bg-video');
     const isMobile = window.innerWidth <= 768;
+    video.src = isMobile ? 'Hero_Mo.mp4' : 'hero-5.mp4';
     
-    // Define your file paths
-    const videoUrl = isMobile ? 'Hero_Mo.mp4' : 'hero-5.mp4';
-
-    // 1. Set the source
-    video.src = videoUrl;
-
-    // 2. Load the video
-    video.load();
-
-    // 3. Safari/iOS Fix: Explicitly call .play() to bypass strict autoplay blocks
-    const playPromise = video.play();
+    // Safari essential attributes
+    video.muted = true;
+    video.playsInline = true;  // iOS must-have
+    video.loop = true;
+    video.controls = false;
     
-    if (playPromise !== undefined) {
-        playPromise.catch(error => {
-            // Video couldn't autoplay (usually due to Low Power Mode)
-            console.log("Autoplay blocked. Showing poster image instead.");
-        });
+    // Aggressive autoplay with retries
+    function tryPlay(attempts = 0) {
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise
+                .then(() => {
+                    console.log('✅ Safari video playing');
+                    video.play(); // Double-play Safari fix
+                })
+                .catch(e => {
+                    if (attempts < 3) {
+                        setTimeout(() => tryPlay(attempts + 1), 100);
+                    } else {
+                        console.log('⚠️ Autoplay blocked, waiting for interaction');
+                        // Fallback: Play on first user interaction
+                        document.addEventListener('click', () => video.play(), { once: true });
+                        document.addEventListener('touchstart', () => video.play(), { once: true });
+                    }
+                });
+        }
     }
+    
+    video.addEventListener('canplaythrough', () => tryPlay());
+    video.load();
 }
 
-// Run when the DOM is ready
-document.addEventListener('DOMContentLoaded', initResponsiveVideo);
+// Multiple triggers for Safari
+document.addEventListener('DOMContentLoaded', forcePlayVideo);
+window.addEventListener('load', forcePlayVideo);
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) forcePlayVideo();
+});
 </script>
+
 </body>
 </html>
+
 
 
 
