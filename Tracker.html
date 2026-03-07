@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Track Pro - Shipment Tracking</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+    }
+    
+    .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    .animate-slide-in { animation: slideIn 0.4s ease-out forwards; }
+    .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    }
+    
+    .gradient-accent {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    }
+    
+    .status-pulse {
+      position: relative;
+    }
+    
+    .status-pulse::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      animation: pulse-ring 1.5s ease-out infinite;
+    }
+    
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    
+    .timeline-line {
+      background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      ring: 2px;
+      ring-color: #3b82f6;
+    }
+    
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+    
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full bg-slate-100 overflow-auto">
+  <div id="app" class="min-h-full w-full">
+   <!-- Navigation Bar -->
+   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-card shadow-lg">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-14 sm:h-16">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+       <div class="w-9 h-9 sm:w-10 sm:h-10 gradient-accent rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <div class="min-w-0">
+        <h1 id="nav-company-name" class="font-display font-bold text-sm sm:text-xl text-slate-800 truncate">Global Track Pro</h1>
+        <p id="nav-tagline" class="text-xs text-slate-500 hidden sm:block">Worldwide Logistics Tracking</p>
+       </div>
+      </div><!-- Navigation Links -->
+      <div class="flex items-center gap-1 sm:gap-2"><button onclick="showPage('public')" class="nav-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap"> 🔍 <span class="hidden sm:inline">Track</span> </button> <button onclick="showPage('user-login')" class="nav-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap"> 📊 <span class="hidden sm:inline">Dashboard</span> </button> <button onclick="showPage('admin-login')" class="nav-btn px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap"> ⚙️ <span class="hidden sm:inline">Admin</span> </button>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Public Tracking Page -->
+   <div id="page-public" class="page min-h-full pt-16">
+    <!-- Hero Section -->
+    <div class="gradient-bg relative overflow-hidden">
+     <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewbox="0 0 100 100" preserveaspectratio="none">
+       <defs>
+        <pattern id="grid" width="10" height="10" patternunits="userSpaceOnUse">
+         <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" />
+        </pattern>
+       </defs> <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+     </div>
+     <div class="relative max-w-4xl mx-auto px-3 sm:px-4 py-5 sm:py-10 text-center">
+      <div class="animate-fade-in">
+       <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> <span class="text-white/80 text-xs sm:text-sm">Live Tracking Available</span>
+       </div>
+       <h1 id="hero-title" class="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">Track Your Shipment</h1>
+       <p id="hero-subtitle" class="text-base sm:text-xl text-white/70 mb-6 sm:mb-8">Real-time tracking for Air &amp; Sea freight worldwide</p>
+      </div><!-- Search Box -->
+      <div class="animate-fade-in max-w-2xl mx-auto px-3 sm:px-0 mb-20" style="animation-delay: 0.2s;">
+       <div class="glass-card rounded-lg sm:rounded-2xl p-4 sm:p-6 shadow-2xl">
+        <div class="flex flex-col gap-3 sm:gap-4">
+         <div class="flex-1 relative">
+          <div class="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-slate-400">
+           <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+           </svg>
+          </div><input type="text" id="public-search-input" placeholder="Enter AWB or B/L Number" class="w-full pl-9 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-4 rounded-lg sm:rounded-xl border-2 border-slate-200 focus:border-blue-500 text-sm sm:text-lg transition-all" onkeypress="if(event.key === 'Enter') searchPublicTracking()">
+         </div><button onclick="searchPublicTracking()" class="gradient-accent text-white px-4 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 flex-shrink-0"> <span>Track</span>
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg></button>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2 sm:mt-4">Enter your Air Waybill (AWB) or Bill of Lading (B/L) number to track your shipment</p>
+       </div>
+      </div>
+     </div><!-- Wave Decoration -->
+     <div class="absolute bottom-0 left-0 right-0">
+      <svg viewbox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#f1f5f9" />
+      </svg>
+     </div>
+    </div><!-- Tracking Result -->
+    <div id="public-tracking-result" class="hidden max-w-4xl mx-auto px-4 py-12">
+     <!-- Result will be populated dynamically -->
+    </div><!-- Features Section -->
+    <div class="max-w-6xl mx-auto px-4 py-16">
+     <div class="text-center mb-12">
+      <h2 class="font-display text-3xl font-bold text-slate-800 mb-4">Why Choose Global Track Pro?</h2>
+      <p class="text-slate-600">Advanced tracking solutions for modern logistics</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="glass-card rounded-2xl p-8 card-hover animate-fade-in" style="animation-delay: 0.1s;">
+       <div class="w-14 h-14 gradient-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+       </div>
+       <h3 class="font-display text-xl font-semibold text-slate-800 mb-3">Air Freight</h3>
+       <p class="text-slate-600">Real-time tracking for all major airlines worldwide with instant status updates.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-8 card-hover animate-fade-in" style="animation-delay: 0.2s;">
+       <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-xl font-semibold text-slate-800 mb-3">Sea Freight</h3>
+       <p class="text-slate-600">Container tracking across all major shipping lines with port-to-port visibility.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-8 card-hover animate-fade-in" style="animation-delay: 0.3s;">
+       <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-xl font-semibold text-slate-800 mb-3">Secure &amp; Reliable</h3>
+       <p class="text-slate-600">Enterprise-grade security with 99.9% uptime guarantee for uninterrupted tracking.</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- User Login Page -->
+   <div id="page-user-login" class="page hidden min-h-full pt-16 flex items-center justify-center gradient-bg">
+    <div class="glass-card rounded-2xl p-8 w-full max-w-md mx-4 mt-5 mb-5 shadow-2xl animate-fade-in">
+     <div class="text-center mb-8">
+      <div class="w-16 h-16 gradient-accent rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+       </svg>
+      </div>
+      <h2 class="font-display text-2xl font-bold text-slate-800">User Dashboard</h2>
+      <p class="text-slate-500 mt-2">Enter password to access tracking dashboard</p>
+     </div>
+     <div class="space-y-4">
+      <div>
+       <label class="block text-sm font-medium text-slate-700 mb-2">Password</label> <input type="password" id="user-password" placeholder="Enter password" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-blue-500 transition-all" onkeypress="if(event.key === 'Enter') loginUser()">
+      </div>
+      <div id="user-login-error" class="hidden text-red-500 text-sm text-center"></div><button onclick="loginUser()" class="w-full gradient-accent text-white py-3 rounded-xl font-semibold hover:opacity-90 transition-all shadow-lg"> Access Dashboard </button>
+     </div>
+     <p class="text-center text-sm text-slate-500 mt-6">If you forget password, contact with devloper<code class="bg-slate-100 px-2 py-1 rounded"></code></p>
+    </div>
+   </div><!-- User Dashboard Page -->
+   <div id="page-user-dashboard" class="page hidden min-h-full pt-16 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
+     <!-- Header -->
+     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+      <div>
+       <h1 class="font-display text-2xl sm:text-3xl font-bold text-slate-800">Tracking Dashboard</h1>
+       <p class="text-slate-500 text-sm sm:text-base mt-1">Monitor all shipments in real-time</p>
+      </div><button onclick="logoutUser()" class="px-3 sm:px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-all flex items-center space-x-2 text-sm sm:text-base">
+       <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+       </svg><span>Logout</span> </button>
+     </div><!-- Stats Cards -->
+     <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+      <div class="glass-card rounded-lg sm:rounded-xl p-4 sm:p-6 card-hover">
+       <div class="flex items-center justify-between gap-2 sm:gap-0">
+        <div class="min-w-0">
+         <p class="text-xs sm:text-sm text-slate-500">Total Shipments</p>
+         <p id="stat-total" class="font-display text-2xl sm:text-3xl font-bold text-slate-800 mt-1">0</p>
+        </div>
+        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+         </svg>
+        </div>
+       </div>
+      </div>
+      <div class="glass-card rounded-lg sm:rounded-xl p-4 sm:p-6 card-hover">
+       <div class="flex items-center justify-between gap-2 sm:gap-0">
+        <div class="min-w-0">
+         <p class="text-xs sm:text-sm text-slate-500">In Transit</p>
+         <p id="stat-transit" class="font-display text-2xl sm:text-3xl font-bold text-amber-600 mt-1">0</p>
+        </div>
+        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-amber-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+         </svg>
+        </div>
+       </div>
+      </div>
+      <div class="glass-card rounded-lg sm:rounded-xl p-4 sm:p-6 card-hover">
+       <div class="flex items-center justify-between gap-2 sm:gap-0">
+        <div class="min-w-0">
+         <p class="text-xs sm:text-sm text-slate-500">Delivered</p>
+         <p id="stat-delivered" class="font-display text-2xl sm:text-3xl font-bold text-green-600 mt-1">0</p>
+        </div>
+        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-green-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+        </div>
+       </div>
+      </div>
+      <div class="glass-card rounded-lg sm:rounded-xl p-4 sm:p-6 card-hover">
+       <div class="flex items-center justify-between gap-2 sm:gap-0">
+        <div class="min-w-0">
+         <p class="text-xs sm:text-sm text-slate-500">Pending</p>
+         <p id="stat-pending" class="font-display text-2xl sm:text-3xl font-bold text-purple-600 mt-1">0</p>
+        </div>
+        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+        </div>
+       </div>
+      </div>
+     </div><!-- Filter Bar -->
+     <div class="glass-card rounded-lg sm:rounded-xl p-3 sm:p-4 mb-6">
+      <div class="flex flex-col gap-2 sm:gap-4 items-center">
+       <div class="flex-1 relative w-full">
+        <svg class="absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg><input type="text" id="user-search" placeholder="Search..." class="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all text-sm sm:text-base" oninput="filterUserShipments()">
+       </div><select id="user-filter-type" onchange="filterUserShipments()" class="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all text-sm sm:text-base"> <option value="">All Types</option> <option value="Air">✈️ Air Freight</option> <option value="Sea">🚢 Sea Freight</option> </select> <select id="user-filter-status" onchange="filterUserShipments()" class="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all text-sm sm:text-base"> <option value="">All Status</option> <option value="Pending">⏳ Pending</option> <option value="In Transit">🚚 In Transit</option> <option value="Customs">📋 Customs</option> <option value="Out for Delivery">📦 Out for Delivery</option> <option value="Delivered">✅ Delivered</option> </select>
+      </div>
+     </div><!-- Shipments Table -->
+     <div class="glass-card rounded-lg sm:rounded-xl overflow-hidden">
+      <div class="overflow-x-auto max-h-96 scrollbar-thin">
+       <table class="w-full text-sm sm:text-base">
+        <thead class="bg-slate-50 border-b border-slate-200 sticky top-0">
+         <tr>
+          <th class="px-2 sm:px-6 py-2 sm:py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Tracking #</th>
+          <th class="px-2 sm:px-6 py-2 sm:py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:table-cell">Type</th>
+          <th class="px-2 sm:px-6 py-2 sm:py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider hidden md:table-cell">Route</th>
+          <th class="px-2 sm:px-6 py-2 sm:py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
+          <th class="px-2 sm:px-6 py-2 sm:py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider hidden lg:table-cell">ETA</th>
+          <th class="px-2 sm:px-6 py-2 sm:py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider hidden lg:table-cell">Updated</th>
+         </tr>
+        </thead>
+        <tbody id="user-shipments-table" class="divide-y divide-slate-100">
+         <!-- Populated dynamically -->
+        </tbody>
+       </table>
+      </div>
+      <div id="user-no-data" class="hidden p-12 text-center">
+       <svg class="w-16 h-16 mx-auto text-slate-300 mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+       </svg>
+       <p class="text-slate-500 text-lg">No shipments found</p>
+       <p class="text-slate-400 text-sm mt-1">Shipments will appear here once added by admin</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- Admin Login Page -->
+   <div id="page-admin-login" class="page hidden min-h-full pt-16 flex items-center justify-center gradient-bg">
+    <div class="glass-card rounded-2xl p-8 w-full max-w-md mx-4 mt-5 mb-5 shadow-2xl animate-fade-in">
+     <div class="text-center mb-8">
+      <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+       </svg>
+      </div>
+      <h2 class="font-display text-2xl font-bold text-slate-800">Admin Panel</h2>
+      <p class="text-slate-500 mt-2">Enter admin credentials to manage shipments</p>
+     </div>
+     <div class="space-y-4">
+      <div>
+       <label class="block text-sm font-medium text-slate-700 mb-2">Password</label> <input type="password" id="admin-password" placeholder="Enter admin password" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-orange-500 transition-all" onkeypress="if(event.key === 'Enter') loginAdmin()">
+      </div>
+      <div id="admin-login-error" class="hidden text-red-500 text-sm text-center"></div><button onclick="loginAdmin()" class="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white py-3 rounded-xl font-semibold hover:opacity-90 transition-all shadow-lg"> Access Admin Panel </button>
+     </div>
+     <p class="text-center text-sm text-slate-500 mt-6">If you forget password, contact with devloper <code class="bg-slate-100 px-2 py-1 rounded"></code></p>
+    </div>
+   </div><!-- Admin Panel Page -->
+   <div id="page-admin-panel" class="page hidden min-h-full pt-16 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
+     <!-- Header -->
+     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+      <div>
+       <h1 class="font-display text-2xl sm:text-3xl font-bold text-slate-800">Admin Panel</h1>
+       <p class="text-slate-500 text-sm sm:text-base mt-1">Manage and update shipment tracking</p>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3 flex-wrap"><button onclick="showAddShipmentModal()" class="px-3 sm:px-4 py-2 gradient-accent text-white rounded-lg hover:opacity-90 transition-all flex items-center space-x-1 sm:space-x-2 shadow-lg text-sm sm:text-base">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg><span>Add</span> </button> <button onclick="logoutAdmin()" class="px-3 sm:px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-all flex items-center space-x-1 sm:space-x-2 text-sm sm:text-base">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg><span>Logout</span> </button>
+      </div>
+     </div><!-- Data Limit Warning -->
+     <div id="admin-limit-warning" class="hidden mb-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-center space-x-3">
+      <svg class="w-6 h-6 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <div>
+       <p class="font-medium text-amber-800">Storage Limit Approaching</p>
+       <p class="text-sm text-amber-600">You have reached the maximum limit of 999 shipments. Please delete some to add more.</p>
+      </div>
+     </div><!-- Admin Shipments Table -->
+     <div class="glass-card rounded-xl overflow-hidden">
+      <div class="p-4 border-b border-slate-200 bg-slate-50">
+       <div class="flex flex-col sm:flex-row gap-4 items-center">
+        <div class="flex-1 relative w-full">
+         <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+         </svg><input type="text" id="admin-search" placeholder="Search shipments..." class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all" oninput="filterAdminShipments()">
+        </div><span id="admin-record-count" class="text-sm text-slate-500">0 records</span>
+       </div>
+      </div>
+      <div class="overflow-x-auto max-h-96 scrollbar-thin">
+       <table class="w-full">
+        <thead class="bg-slate-50 border-b border-slate-200 sticky top-0">
+         <tr>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Tracking #</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Type</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Origin</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Destination</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">ETA</th>
+          <th class="px-4 py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Actions</th>
+         </tr>
+        </thead>
+        <tbody id="admin-shipments-table" class="divide-y divide-slate-100">
+         <!-- Populated dynamically -->
+        </tbody>
+       </table>
+      </div>
+      <div id="admin-no-data" class="hidden p-12 text-center">
+       <svg class="w-16 h-16 mx-auto text-slate-300 mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+       </svg>
+       <p class="text-slate-500 text-lg">No shipments yet</p>
+       <p class="text-slate-400 text-sm mt-1">Click "Add Shipment" to create your first tracking entry</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- Add/Edit Shipment Modal -->
+   <div id="shipment-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div class="flex items-center justify-center min-h-full p-4">
+     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeShipmentModal()"></div>
+     <div class="relative glass-card rounded-2xl w-full max-w-2xl shadow-2xl animate-fade-in">
+      <div class="p-6 border-b border-slate-200">
+       <div class="flex items-center justify-between">
+        <h3 id="modal-title" class="font-display text-xl font-bold text-slate-800">Add New Shipment</h3><button onclick="closeShipmentModal()" class="p-2 hover:bg-slate-100 rounded-lg transition-all">
+         <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+         </svg></button>
+       </div>
+      </div>
+      <form id="shipment-form" class="p-6 space-y-6" onsubmit="saveShipment(event)">
+       <input type="hidden" id="form-edit-id">
+       <div class="grid md:grid-cols-2 gap-4">
+        <div>
+         <label class="block text-sm font-medium text-slate-700 mb-2">Tracking Number *</label> <input type="text" id="form-tracking" required placeholder="e.g., AWB123456789" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all">
+        </div>
+        <div>
+         <label class="block text-sm font-medium text-slate-700 mb-2">Shipment Type *</label> <select id="form-type" required class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all"> <option value="">Select type</option> <option value="Air">✈️ Air Freight</option> <option value="Sea">🚢 Sea Freight</option> </select>
+        </div>
+       </div>
+       <div class="grid md:grid-cols-2 gap-4">
+        <div>
+         <label class="block text-sm font-medium text-slate-700 mb-2">Origin *</label> <input type="text" id="form-origin" required placeholder="e.g., Shanghai, China" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all">
+        </div>
+        <div>
+         <label class="block text-sm font-medium text-slate-700 mb-2">Destination *</label> <input type="text" id="form-destination" required placeholder="e.g., Los Angeles, USA" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all">
+        </div>
+       </div>
+       <div class="grid md:grid-cols-2 gap-4">
+        <div>
+         <label class="block text-sm font-medium text-slate-700 mb-2">Shipper Name</label> <input type="text" id="form-shipper" placeholder="Shipper company name" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all">
+        </div>
+        <div>
+         <label class="block text-sm font-medium text-slate-700 mb-2">Consignee Name</label> <input type="text" id="form-consignee" placeholder="Consignee company name" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all">
+        </div>
+       </div>
+       <div class="grid md:grid-cols-2 gap-4">
+        <div>
+         <label class="block text-sm font-medium text-slate-700 mb-2">Status *</label> <select id="form-status" required class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all"> <option value="">Select status</option> <option value="Pending">⏳ Pending</option> <option value="Picked Up">📥 Picked Up</option> <option value="In Transit">🚚 In Transit</option> <option value="Customs">📋 Customs Clearance</option> <option value="Out for Delivery">📦 Out for Delivery</option> <option value="Delivered">✅ Delivered</option> <option value="On Hold">⚠️ On Hold</option> <option value="Exception">❌ Exception</option> </select>
+        </div>
+        <div>
+         <label class="block text-sm font-medium text-slate-700 mb-2">ETA</label> <input type="date" id="form-eta" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all">
+        </div>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-slate-700 mb-2">Status Details / Notes</label> <textarea id="form-status-detail" rows="3" placeholder="Enter detailed status information or notes..." class="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-blue-500 transition-all resize-none"></textarea>
+       </div>
+       <div class="flex justify-end space-x-3 pt-4 border-t border-slate-200">
+        <button type="button" onclick="closeShipmentModal()" class="px-6 py-2.5 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-all"> Cancel </button> <button type="submit" id="form-submit-btn" class="px-6 py-2.5 gradient-accent text-white rounded-lg hover:opacity-90 transition-all flex items-center space-x-2"> <span>Save Shipment</span>
+         <svg id="form-loading" class="hidden w-5 h-5 animate-spin" fill="none" viewbox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+         </svg></button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div><!-- Delete Confirmation Modal -->
+   <div id="delete-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div class="flex items-center justify-center min-h-full p-4">
+     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeDeleteModal()"></div>
+     <div class="relative glass-card rounded-2xl w-full max-w-md shadow-2xl animate-fade-in p-6">
+      <div class="text-center">
+       <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+       </div>
+       <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Delete Shipment?</h3>
+       <p class="text-slate-500 mb-6">This action cannot be undone. The shipment record will be permanently removed.</p><input type="hidden" id="delete-shipment-id">
+       <div class="flex space-x-3">
+        <button onclick="closeDeleteModal()" class="flex-1 px-4 py-2.5 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-all"> Cancel </button> <button onclick="confirmDeleteShipment()" id="delete-confirm-btn" class="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all flex items-center justify-center space-x-2"> <span>Delete</span>
+         <svg id="delete-loading" class="hidden w-5 h-5 animate-spin" fill="none" viewbox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+         </svg></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- Toast Notification -->
+   <div id="toast" class="fixed bottom-4 right-4 z-50 hidden">
+    <div class="glass-card rounded-xl p-4 shadow-2xl flex items-center space-x-3 animate-slide-in">
+     <div id="toast-icon" class="w-10 h-10 rounded-full flex items-center justify-center">
+      <!-- Icon populated dynamically -->
+     </div>
+     <div>
+      <p id="toast-title" class="font-semibold text-slate-800"></p>
+      <p id="toast-message" class="text-sm text-slate-500"></p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    // ==================== Configuration ====================
+    const defaultConfig = {
+      company_name: 'Global Track Pro',
+      tagline: 'Worldwide Logistics Tracking',
+      hero_title: 'Track Your Shipment',
+      hero_subtitle: 'Real-time tracking for Air & Sea freight worldwide',
+      primary_color: '#3b82f6',
+      secondary_color: '#8b5cf6',
+      background_color: '#0f172a',
+      surface_color: '#ffffff',
+      text_color: '#1e293b'
+    };
+    
+    // Passwords (in production, these would be server-side)
+    const USER_PASSWORD = 'user123';
+    const ADMIN_PASSWORD = 'admin123';
+    
+    // State
+    let allShipments = [];
+    let filteredUserShipments = [];
+    let filteredAdminShipments = [];
+    let currentEditShipment = null;
+    let deleteTargetShipment = null;
+    let isUserLoggedIn = false;
+    let isAdminLoggedIn = false;
+    
+    // ==================== Element SDK Integration ====================
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          const companyName = config.company_name || defaultConfig.company_name;
+          const tagline = config.tagline || defaultConfig.tagline;
+          const heroTitle = config.hero_title || defaultConfig.hero_title;
+          const heroSubtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
+          
+          document.getElementById('nav-company-name').textContent = companyName;
+          document.getElementById('nav-tagline').textContent = tagline;
+          document.getElementById('hero-title').textContent = heroTitle;
+          document.getElementById('hero-subtitle').textContent = heroSubtitle;
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['company_name', config.company_name || defaultConfig.company_name],
+          ['tagline', config.tagline || defaultConfig.tagline],
+          ['hero_title', config.hero_title || defaultConfig.hero_title],
+          ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle]
+        ])
+      });
+    }
+    
+    // ==================== Data SDK Integration ====================
+    const dataHandler = {
+      onDataChanged(data) {
+        allShipments = data;
+        updateStatistics();
+        renderUserShipments();
+        renderAdminShipments();
+        
+        // Check limit
+        const limitWarning = document.getElementById('admin-limit-warning');
+        if (allShipments.length >= 999) {
+          limitWarning.classList.remove('hidden');
+        } else {
+          limitWarning.classList.add('hidden');
+        }
+        
+        document.getElementById('admin-record-count').textContent = `${allShipments.length} records`;
+      }
+    };
+    
+    async function initDataSdk() {
+      if (window.dataSdk) {
+        const result = await window.dataSdk.init(dataHandler);
+        if (!result.isOk) {
+          console.error('Failed to initialize Data SDK');
+        }
+      }
+    }
+    
+    initDataSdk();
+    
+    // ==================== Page Navigation ====================
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
+      
+      if (pageId === 'user-login' && isUserLoggedIn) {
+        pageId = 'user-dashboard';
+      }
+      if (pageId === 'admin-login' && isAdminLoggedIn) {
+        pageId = 'admin-panel';
+      }
+      
+      document.getElementById(`page-${pageId}`).classList.remove('hidden');
+      
+      // Update nav active state
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-50', 'text-blue-600');
+      });
+    }
+    
+    // ==================== Authentication ====================
+    function loginUser() {
+      const password = document.getElementById('user-password').value;
+      const errorEl = document.getElementById('user-login-error');
+      
+      if (password === USER_PASSWORD) {
+        isUserLoggedIn = true;
+        document.getElementById('user-password').value = '';
+        errorEl.classList.add('hidden');
+        showPage('user-dashboard');
+        showToast('success', 'Welcome!', 'You are now logged in to the dashboard');
+      } else {
+        errorEl.textContent = 'Invalid password. Please try again.';
+        errorEl.classList.remove('hidden');
+      }
+    }
+    
+    function logoutUser() {
+      isUserLoggedIn = false;
+      showPage('public');
+      showToast('info', 'Logged Out', 'You have been logged out successfully');
+    }
+    
+    function loginAdmin() {
+      const password = document.getElementById('admin-password').value;
+      const errorEl = document.getElementById('admin-login-error');
+      
+      if (password === ADMIN_PASSWORD) {
+        isAdminLoggedIn = true;
+        document.getElementById('admin-password').value = '';
+        errorEl.classList.add('hidden');
+        showPage('admin-panel');
+        showToast('success', 'Welcome Admin!', 'You can now manage shipments');
+      } else {
+        errorEl.textContent = 'Invalid admin password. Please try again.';
+        errorEl.classList.remove('hidden');
+      }
+    }
+    
+    function logoutAdmin() {
+      isAdminLoggedIn = false;
+      showPage('public');
+      showToast('info', 'Logged Out', 'Admin session ended');
+    }
+    
+    // ==================== Statistics ====================
+    function updateStatistics() {
+      const total = allShipments.length;
+      const transit = allShipments.filter(s => s.status === 'In Transit' || s.status === 'Picked Up').length;
+      const delivered = allShipments.filter(s => s.status === 'Delivered').length;
+      const pending = allShipments.filter(s => s.status === 'Pending' || s.status === 'Customs' || s.status === 'On Hold').length;
+      
+      document.getElementById('stat-total').textContent = total;
+      document.getElementById('stat-transit').textContent = transit;
+      document.getElementById('stat-delivered').textContent = delivered;
+      document.getElementById('stat-pending').textContent = pending;
+    }
+    
+    // ==================== User Dashboard ====================
+    function filterUserShipments() {
+      const search = document.getElementById('user-search').value.toLowerCase();
+      const typeFilter = document.getElementById('user-filter-type').value;
+      const statusFilter = document.getElementById('user-filter-status').value;
+      
+      filteredUserShipments = allShipments.filter(shipment => {
+        const matchesSearch = !search || 
+          shipment.tracking_number.toLowerCase().includes(search) ||
+          shipment.origin.toLowerCase().includes(search) ||
+          shipment.destination.toLowerCase().includes(search);
+        const matchesType = !typeFilter || shipment.type === typeFilter;
+        const matchesStatus = !statusFilter || shipment.status === statusFilter;
+        return matchesSearch && matchesType && matchesStatus;
+      });
+      
+      renderUserShipments();
+    }
+    
+    function renderUserShipments() {
+      const container = document.getElementById('user-shipments-table');
+      const noDataEl = document.getElementById('user-no-data');
+      const shipmentsToShow = filteredUserShipments.length ? filteredUserShipments : allShipments;
+      
+      if (!shipmentsToShow.length) {
+        container.innerHTML = '';
+        noDataEl.classList.remove('hidden');
+        return;
+      }
+      
+      noDataEl.classList.add('hidden');
+      
+      const existingRows = new Map([...container.children].map(el => [el.dataset.id, el]));
+      
+      shipmentsToShow.forEach((shipment, index) => {
+        const id = shipment.__backendId;
+        let row = existingRows.get(id);
+        
+        if (row) {
+          updateUserRow(row, shipment);
+          existingRows.delete(id);
+        } else {
+          row = createUserRow(shipment, index);
+          container.appendChild(row);
+        }
+      });
+      
+      existingRows.forEach(row => row.remove());
+    }
+    
+    function createUserRow(shipment, index) {
+      const row = document.createElement('tr');
+      row.dataset.id = shipment.__backendId;
+      row.className = 'hover:bg-slate-50 transition-all cursor-pointer';
+      row.style.animationDelay = `${index * 0.05}s`;
+      row.onclick = () => showPublicTrackingResult(shipment);
+      updateUserRow(row, shipment);
+      return row;
+    }
+    
+    function updateUserRow(row, shipment) {
+      const statusStyles = getStatusStyles(shipment.status);
+      row.innerHTML = `
+        <td class="px-6 py-4">
+          <div class="flex items-center space-x-2">
+            <span class="text-lg">${shipment.type === 'Air' ? '✈️' : '🚢'}</span>
+            <span class="font-mono font-medium text-slate-800">${shipment.tracking_number}</span>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <span class="px-2.5 py-1 rounded-full text-xs font-medium ${shipment.type === 'Air' ? 'bg-sky-100 text-sky-700' : 'bg-cyan-100 text-cyan-700'}">
+            ${shipment.type}
+          </span>
+        </td>
+        <td class="px-6 py-4">
+          <div class="text-sm">
+            <p class="text-slate-800">${shipment.origin}</p>
+            <p class="text-slate-400">→ ${shipment.destination}</p>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <span class="px-2.5 py-1 rounded-full text-xs font-medium ${statusStyles}">
+            ${shipment.status}
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-slate-600">${shipment.eta || '-'}</td>
+        <td class="px-6 py-4 text-sm text-slate-500">${formatDate(shipment.last_update)}</td>
+      `;
+    }
+    
+    // ==================== Admin Panel ====================
+    function filterAdminShipments() {
+      const search = document.getElementById('admin-search').value.toLowerCase();
+      
+      filteredAdminShipments = allShipments.filter(shipment => {
+        return !search || 
+          shipment.tracking_number.toLowerCase().includes(search) ||
+          shipment.origin.toLowerCase().includes(search) ||
+          shipment.destination.toLowerCase().includes(search) ||
+          shipment.status.toLowerCase().includes(search);
+      });
+      
+      renderAdminShipments();
+    }
+    
+    function renderAdminShipments() {
+      const container = document.getElementById('admin-shipments-table');
+      const noDataEl = document.getElementById('admin-no-data');
+      const shipmentsToShow = filteredAdminShipments.length || document.getElementById('admin-search').value 
+        ? filteredAdminShipments 
+        : allShipments;
+      
+      if (!allShipments.length) {
+        container.innerHTML = '';
+        noDataEl.classList.remove('hidden');
+        return;
+      }
+      
+      noDataEl.classList.add('hidden');
+      
+      if (!shipmentsToShow.length) {
+        container.innerHTML = '<tr><td colspan="7" class="px-6 py-8 text-center text-slate-500">No matching shipments found</td></tr>';
+        return;
+      }
+      
+      const existingRows = new Map([...container.children].map(el => [el.dataset.id, el]));
+      
+      shipmentsToShow.forEach(shipment => {
+        const id = shipment.__backendId;
+        let row = existingRows.get(id);
+        
+        if (row) {
+          updateAdminRow(row, shipment);
+          existingRows.delete(id);
+        } else {
+          row = createAdminRow(shipment);
+          container.appendChild(row);
+        }
+      });
+      
+      existingRows.forEach(row => row.remove());
+    }
+    
+    function createAdminRow(shipment) {
+      const row = document.createElement('tr');
+      row.dataset.id = shipment.__backendId;
+      row.className = 'hover:bg-slate-50 transition-all';
+      updateAdminRow(row, shipment);
+      return row;
+    }
+    
+    function updateAdminRow(row, shipment) {
+      const statusStyles = getStatusStyles(shipment.status);
+      row.innerHTML = `
+        <td class="px-4 py-3">
+          <span class="font-mono text-sm font-medium text-slate-800">${shipment.tracking_number}</span>
+        </td>
+        <td class="px-4 py-3">
+          <span class="text-sm">${shipment.type === 'Air' ? '✈️' : '🚢'} ${shipment.type}</span>
+        </td>
+        <td class="px-4 py-3 text-sm text-slate-600">${shipment.origin}</td>
+        <td class="px-4 py-3 text-sm text-slate-600">${shipment.destination}</td>
+        <td class="px-4 py-3">
+          <span class="px-2 py-0.5 rounded-full text-xs font-medium ${statusStyles}">
+            ${shipment.status}
+          </span>
+        </td>
+        <td class="px-4 py-3 text-sm text-slate-600">${shipment.eta || '-'}</td>
+        <td class="px-4 py-3">
+          <div class="flex items-center justify-center space-x-2">
+            <button onclick="editShipment('${shipment.__backendId}')" 
+              class="p-1.5 text-blue-600 hover:bg-blue-50 rounded-lg transition-all" title="Edit">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+              </svg>
+            </button>
+            <button onclick="showDeleteModal('${shipment.__backendId}')" 
+              class="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-all" title="Delete">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+              </svg>
+            </button>
+          </div>
+        </td>
+      `;
+    }
+    
+    // ==================== Shipment Modal ====================
+    function showAddShipmentModal() {
+      if (allShipments.length >= 999) {
+        showToast('error', 'Limit Reached', 'Maximum 999 shipments allowed. Please delete some first.');
+        return;
+      }
+      
+      currentEditShipment = null;
+      document.getElementById('modal-title').textContent = 'Add New Shipment';
+      document.getElementById('shipment-form').reset();
+      document.getElementById('form-edit-id').value = '';
+      document.getElementById('shipment-modal').classList.remove('hidden');
+    }
+    
+    function editShipment(id) {
+      const shipment = allShipments.find(s => s.__backendId === id);
+      if (!shipment) return;
+      
+      currentEditShipment = shipment;
+      document.getElementById('modal-title').textContent = 'Edit Shipment';
+      document.getElementById('form-edit-id').value = id;
+      document.getElementById('form-tracking').value = shipment.tracking_number;
+      document.getElementById('form-type').value = shipment.type;
+      document.getElementById('form-origin').value = shipment.origin;
+      document.getElementById('form-destination').value = shipment.destination;
+      document.getElementById('form-shipper').value = shipment.shipper || '';
+      document.getElementById('form-consignee').value = shipment.consignee || '';
+      document.getElementById('form-status').value = shipment.status;
+      document.getElementById('form-eta').value = shipment.eta || '';
+      document.getElementById('form-status-detail').value = shipment.status_detail || '';
+      document.getElementById('shipment-modal').classList.remove('hidden');
+    }
+    
+    function closeShipmentModal() {
+      document.getElementById('shipment-modal').classList.add('hidden');
+      currentEditShipment = null;
+    }
+    
+    async function saveShipment(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('form-submit-btn');
+      const loadingIcon = document.getElementById('form-loading');
+      submitBtn.disabled = true;
+      loadingIcon.classList.remove('hidden');
+      
+      const shipmentData = {
+        tracking_number: document.getElementById('form-tracking').value.trim().toUpperCase(),
+        type: document.getElementById('form-type').value,
+        origin: document.getElementById('form-origin').value.trim(),
+        destination: document.getElementById('form-destination').value.trim(),
+        shipper: document.getElementById('form-shipper').value.trim(),
+        consignee: document.getElementById('form-consignee').value.trim(),
+        status: document.getElementById('form-status').value,
+        status_detail: document.getElementById('form-status-detail').value.trim(),
+        eta: document.getElementById('form-eta').value,
+        last_update: new Date().toISOString(),
+        created_at: currentEditShipment ? currentEditShipment.created_at : new Date().toISOString()
+      };
+      
+      try {
+        let result;
+        if (currentEditShipment) {
+          result = await window.dataSdk.update({
+            ...shipmentData,
+            __backendId: currentEditShipment.__backendId
+          });
+        } else {
+          result = await window.dataSdk.create(shipmentData);
+        }
+        
+        if (result.isOk) {
+          closeShipmentModal();
+          showToast('success', currentEditShipment ? 'Updated!' : 'Added!', 
+            `Shipment ${shipmentData.tracking_number} has been ${currentEditShipment ? 'updated' : 'created'}`);
+        } else {
+          showToast('error', 'Error', 'Failed to save shipment. Please try again.');
+        }
+      } catch (error) {
+        showToast('error', 'Error', 'An unexpected error occurred.');
+      }
+      
+      submitBtn.disabled = false;
+      loadingIcon.classList.add('hidden');
+    }
+    
+    // ==================== Delete Modal ====================
+    function showDeleteModal(id) {
+      deleteTargetShipment = allShipments.find(s => s.__backendId === id);
+      if (!deleteTargetShipment) return;
+      
+      document.getElementById('delete-shipment-id').value = id;
+      document.getElementById('delete-modal').classList.remove('hidden');
+    }
+    
+    function closeDeleteModal() {
+      document.getElementById('delete-modal').classList.add('hidden');
+      deleteTargetShipment = null;
+    }
+    
+    async function confirmDeleteShipment() {
+      if (!deleteTargetShipment) return;
+      
+      const deleteBtn = document.getElementById('delete-confirm-btn');
+      const loadingIcon = document.getElementById('delete-loading');
+      deleteBtn.disabled = true;
+      loadingIcon.classList.remove('hidden');
+      
+      try {
+        const result = await window.dataSdk.delete(deleteTargetShipment);
+        
+        if (result.isOk) {
+          closeDeleteModal();
+          showToast('success', 'Deleted!', `Shipment ${deleteTargetShipment.tracking_number} has been removed`);
+        } else {
+          showToast('error', 'Error', 'Failed to delete shipment. Please try again.');
+        }
+      } catch (error) {
+        showToast('error', 'Error', 'An unexpected error occurred.');
+      }
+      
+      deleteBtn.disabled = false;
+      loadingIcon.classList.add('hidden');
+    }
+    
+    // ==================== Public Tracking ====================
+    function searchPublicTracking() {
+      const searchValue = document.getElementById('public-search-input').value.trim().toUpperCase();
+      
+      if (!searchValue) {
+        showToast('warning', 'Enter Tracking Number', 'Please enter an AWB or B/L number to track');
+        return;
+      }
+      
+      const shipment = allShipments.find(s => s.tracking_number.toUpperCase() === searchValue);
+      
+      if (shipment) {
+        showPublicTrackingResult(shipment);
+      } else {
+        showPublicTrackingNotFound(searchValue);
+      }
+    }
+    
+    function showPublicTrackingResult(shipment) {
+      const container = document.getElementById('public-tracking-result');
+      const statusStyles = getStatusStyles(shipment.status);
+      const progressPercentage = getStatusProgress(shipment.status);
+      
+      container.innerHTML = `
+        <div class="glass-card rounded-2xl overflow-hidden shadow-xl animate-fade-in">
+          <!-- Header -->
+          <div class="gradient-bg p-6 text-white">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div>
+                <div class="flex items-center space-x-2 mb-2">
+                  <span class="text-2xl">${shipment.type === 'Air' ? '✈️' : '🚢'}</span>
+                  <span class="text-sm bg-white/20 px-3 py-1 rounded-full">${shipment.type} Freight</span>
+                </div>
+                <h3 class="font-display text-2xl font-bold">${shipment.tracking_number}</h3>
+              </div>
+              <div class="text-right">
+                <span class="px-4 py-2 rounded-full text-sm font-semibold ${statusStyles}">
+                  ${shipment.status}
+                </span>
+                <p class="text-white/70 text-sm mt-2">Last updated: ${formatDate(shipment.last_update)}</p>
+              </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="mt-6">
+              <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+                <div class="h-full bg-white rounded-full transition-all duration-1000" style="width: ${progressPercentage}%"></div>
+              </div>
+              <div class="flex justify-between mt-2 text-xs text-white/70">
+                <span>Origin</span>
+                <span>In Transit</span>
+                <span>Customs</span>
+                <span>Delivered</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Details -->
+          <div class="p-6">
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-500">Origin</p>
+                    <p class="font-semibold text-slate-800">${shipment.origin}</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                  <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-500">Destination</p>
+                    <p class="font-semibold text-slate-800">${shipment.destination}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                ${shipment.shipper ? `
+                <div class="flex items-start space-x-3">
+                  <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-500">Shipper</p>
+                    <p class="font-semibold text-slate-800">${shipment.shipper}</p>
+                  </div>
+                </div>
+                ` : ''}
+                
+                ${shipment.eta ? `
+                <div class="flex items-start space-x-3">
+                  <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-500">Estimated Arrival</p>
+                    <p class="font-semibold text-slate-800">${formatDate(shipment.eta)}</p>
+                  </div>
+                </div>
+                ` : ''}
+              </div>
+            </div>
+            
+            ${shipment.status_detail ? `
+            <div class="bg-slate-50 rounded-xl p-4 mt-4">
+              <p class="text-sm text-slate-500 mb-1">Status Details</p>
+              <p class="text-slate-700">${shipment.status_detail}</p>
+            </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+      
+      container.classList.remove('hidden');
+      container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    function showPublicTrackingNotFound(trackingNumber) {
+      const container = document.getElementById('public-tracking-result');
+      
+      container.innerHTML = `
+        <div class="glass-card rounded-2xl p-8 text-center animate-fade-in">
+          <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-slate-800 mb-2">Shipment Not Found</h3>
+          <p class="text-slate-500 mb-4">We couldn't find any shipment with tracking number:</p>
+          <p class="font-mono text-lg font-semibold text-slate-700 bg-slate-100 px-4 py-2 rounded-lg inline-block mb-6">${trackingNumber}</p>
+          <p class="text-sm text-slate-400">Please verify your tracking number and try again, or contact support for assistance.</p>
+        </div>
+      `;
+      
+      container.classList.remove('hidden');
+      container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // ==================== Utilities ====================
+    function getStatusStyles(status) {
+      const styles = {
+        'Pending': 'bg-slate-100 text-slate-700',
+        'Picked Up': 'bg-indigo-100 text-indigo-700',
+        'In Transit': 'bg-amber-100 text-amber-700',
+        'Customs': 'bg-purple-100 text-purple-700',
+        'Out for Delivery': 'bg-blue-100 text-blue-700',
+        'Delivered': 'bg-green-100 text-green-700',
+        'On Hold': 'bg-orange-100 text-orange-700',
+        'Exception': 'bg-red-100 text-red-700'
+      };
+      return styles[status] || 'bg-slate-100 text-slate-700';
+    }
+    
+    function getStatusProgress(status) {
+      const progress = {
+        'Pending': 5,
+        'Picked Up': 20,
+        'In Transit': 45,
+        'Customs': 65,
+        'Out for Delivery': 85,
+        'Delivered': 100,
+        'On Hold': 50,
+        'Exception': 50
+      };
+      return progress[status] || 0;
+    }
+    
+    function formatDate(dateString) {
+      if (!dateString) return '-';
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      });
+    }
+    
+    function showToast(type, title, message) {
+      const toast = document.getElementById('toast');
+      const iconContainer = document.getElementById('toast-icon');
+      const titleEl = document.getElementById('toast-title');
+      const messageEl = document.getElementById('toast-message');
+      
+      const icons = {
+        success: { bg: 'bg-green-100', icon: '<svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>' },
+        error: { bg: 'bg-red-100', icon: '<svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>' },
+        warning: { bg: 'bg-amber-100', icon: '<svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>' },
+        info: { bg: 'bg-blue-100', icon: '<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>' }
+      };
+      
+      iconContainer.className = `w-10 h-10 rounded-full flex items-center justify-center ${icons[type].bg}`;
+      iconContainer.innerHTML = icons[type].icon;
+      titleEl.textContent = title;
+      messageEl.textContent = message;
+      
+      toast.classList.remove('hidden');
+      
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+    
+    // Initialize
+    showPage('public');
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d8819f6d23da792',t:'MTc3Mjg3MDc5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
